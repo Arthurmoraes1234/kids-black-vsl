@@ -178,6 +178,47 @@
         }
         .offer-list li { margin-bottom: 15px; font-size: 1.1rem; }
         .offer-list i { color: var(--rosa-destaque-suave); margin-right: 10px; }
+        
+        /* --- 🎁 ESTILOS DA NOVA SEÇÃO DE BÔNUS 🎁 --- */
+        .bonus-section {
+            background-color: #FFFBEF; /* Um amarelo bem claro para destacar suavemente */
+            border-top: 2px dashed var(--amarelo-creme-cta);
+            border-bottom: 2px dashed var(--amarelo-creme-cta);
+        }
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .bonus-card {
+            background-color: var(--branco);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra-suave);
+            border: 1px solid var(--amarelo-creme-cta);
+            transition: transform 0.3s ease;
+        }
+        .bonus-card:hover {
+            transform: translateY(-5px);
+        }
+        .bonus-card .bonus-icon {
+            font-size: 2.5rem;
+            color: var(--rosa-destaque-suave);
+            margin-bottom: 15px;
+        }
+        .bonus-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            margin-bottom: 8px;
+        }
+        .bonus-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        /* --- FIM DOS ESTILOS DE BÔNUS --- */
+
         .guarantee-icon { font-size: 5rem; color: var(--rosa-destaque-suave); margin-bottom: 20px; }
         .faq-item {
             background-color: var(--bg-rosa-pastel); margin-bottom: 15px;
@@ -193,6 +234,11 @@
             section h2 { font-size: 2rem; }
             .price-new { font-size: 2.8rem; }
             .final-call-section h2 { font-size: 1.5rem; }
+
+            /* --- RESPONSIVIDADE DA SEÇÃO DE BÔNUS --- */
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -284,6 +330,36 @@
             <a href="#oferta" class="cta-button">QUERO APRENDER TUDO ISSO!</a>
         </div>
     </section>
+
+    <!-- NOVA SEÇÃO DE BÔNUS INSERIDA AQUI -->
+    <section class="bonus-section">
+        <div class="container">
+            <h2>🎁 Bônus Exclusivos – Só Hoje, 100% Gratuitos!</h2>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <div class="bonus-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h3>Guia da Produção Econômica</h3>
+                    <p>Aprenda a fazer bem casados gastando pouco e aumentando seu lucro.</p>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3>Segredos da Conservação</h3>
+                    <p>Descubra como armazenar e manter o sabor por muito mais tempo.</p>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon"><i class="fa-solid fa-gift"></i></div>
+                    <h3>Embalagens Que Encantam</h3>
+                    <p>Ideias simples e bonitas para valorizar seu produto e conquistar clientes.</p>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon"><i class="fa-solid fa-list-check"></i></div>
+                    <h3>Checklist da Produção Perfeita</h3>
+                    <p>Um passo a passo prático para organizar sua produção e não esquecer nada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FIM DA SEÇÃO DE BÔNUS -->
 
     <section id="oferta">
         <div class="container section-card offer-box">

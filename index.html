@@ -86,20 +86,21 @@
         .headline {
             font-size: 2.2rem;
             font-weight: 900;
-            margin-bottom: 15px; /* Adjusted margin */
+            margin-bottom: 15px;
             color: var(--dark-text);
             line-height: 1.3;
         }
 
-        /* --- NOVO: Retângulo de aviso do vídeo --- */
+        /* --- ✅ [AJUSTADO] Retângulo de aviso do vídeo --- */
         .video-prompt {
-            background: linear-gradient(90deg, var(--bonus-bg), var(--red-cta));
-            color: var(--white);
+            background: linear-gradient(90deg, #fef3c7, #fee2e2); /* Gradiente pastel (amarelo claro para rosa claro) */
+            color: var(--dark-text); /* Texto escuro para alto contraste */
+            border: 1px solid #fde68a; /* Borda sutil para destacar */
             padding: 12px 20px;
             border-radius: 8px;
             font-weight: 700;
             margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra mais suave */
         }
 
         #ifr_68aa4bed6d0925b03d7b09d5_wrapper {
@@ -113,7 +114,7 @@
             margin-top: 30px;
         }
         
-        /* --- NOVO: Texto de urgência --- */
+        /* --- Texto de urgência --- */
         .urgency-text {
             font-size: 1.2rem;
             font-weight: 700;
@@ -128,7 +129,7 @@
         /* --- Preço --- */
         .price {
             margin-top: 25px;
-            font-size: 1.5rem; /* Ajustado para melhor visualização */
+            font-size: 1.5rem;
             font-weight: 400;
             color: var(--dark-text);
             line-height: 1.4;
@@ -136,7 +137,7 @@
 
         /* --- Botão CTA --- */
         .cta-button {
-            display: block; /* Alterado de none para block, já que o container pai controla a visibilidade */
+            display: block;
             width: 100%;
             padding: 20px;
             margin-top: 15px;
@@ -158,7 +159,7 @@
             box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
         }
 
-        /* --- NOVO: Mockup do Produto --- */
+        /* --- Mockup do Produto --- */
         .product-mockup {
             max-width: 450px;
             width: 100%;
@@ -219,7 +220,7 @@
             color: var(--red-cta);
         }
         
-        /* --- NOVO: Seção de Garantia --- */
+        /* --- Seção de Garantia --- */
         .guarantee-section {
             margin-top: 40px;
             padding: 25px;
@@ -239,7 +240,7 @@
             max-width: 120px;
         }
 
-        /* --- NOVO: Seção FAQ --- */
+        /* --- Seção FAQ --- */
         .faq-section {
             margin-top: 40px;
             text-align: left;
@@ -288,9 +289,9 @@
             Descubra o doce viral que quase ninguém no Brasil vende e pode te dar até 3 mil reais em um único final de semana.
         </h1>
         
-        <!-- NOVO: Retângulo de aviso -->
+        <!-- ✅ [AJUSTADO] Retângulo de aviso com novo texto e cores -->
         <div class="video-prompt">
-            assista o video entenda, antes que saia do ar!
+            Assista o vídeo e entenda, antes que saia do ar!
         </div>
 
         <!-- 2. VSL Video Embed -->

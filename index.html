@@ -100,12 +100,12 @@
             font-size: 1.3rem;
             margin-right: 10px;
         }
-
+        
         /* --- Secure Payment Image --- */
         .secure-payment-img {
             max-width: 350px;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 20px; /* Space between price and image */
         }
 
         /* --- Benefits List --- */
@@ -215,4 +215,114 @@
         </script> 
         <div id="ifr_68aa4bed6d0925b03d7b09d5_wrapper" style="margin: 0 auto; width: 100%; max-width: 700px;"> 
             <div style="position: relative; padding: 56.25% 0 0 0;" id="ifr_68aa4bed6d0925b03d7b09d5_aspect"> 
-                <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_68aa4bed6d0925b03d7b09d5
+                <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_68aa4bed6d0925b03d7b09d5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin" onload="this.onload=null, this.src='https://scripts.converteai.net/751abf94-7b61-4139-9bd2-92a8e5c430a1/players/68aa4bed6d0925b03d7b09d5/v4/embed.html' +(location.search||'?') +'&vl=' +encodeURIComponent(location.href)">
+                </iframe> 
+            </div> 
+        </div>
+
+        <!-- 3. Delayed CTA Button -->
+        <a href="https://checkout.novopagamento.site/VCCL1O8SC34L" id="cta-button" class="cta-button">
+            Quero acessar o Método Mochi Lucrativo agora
+        </a>
+
+        <!-- 4. Price Display -->
+        <p id="price-display" class="price" style="display: none;">
+            <span>De R$197,00</span> por apenas R$19,90 hoje.
+        </p>
+
+        <!-- ✅ IMAGE ADDED HERE -->
+        <img src="https://i.imgur.com/Zi55bLN.png" alt="Pagamento Seguro" id="secure-payment-img" class="secure-payment-img" style="display: none;">
+
+
+        <!-- 5. Benefits List -->
+        <ul id="benefits" class="benefits-list" style="display: none;">
+            <li><i class="fa-solid fa-circle-play"></i>Aulas passo a passo em vídeo mostrando como fazer o Mochi</li>
+            <li><i class="fa-solid fa-seedling"></i>Receita adaptada para o Brasil com ingredientes acessíveis</li>
+            <li><i class="fa-solid fa-kitchen-set"></i>Produção simples sem fogão, direto na sua cozinha</li>
+            <li><i class="fa-solid fa-bullseye"></i>Estratégia de vendas para fechar encomendas já no primeiro final de semana</li>
+        </ul>
+        
+        <!-- 6. Bonus Section -->
+        <div id="bonus-section" class="bonus-banner" style="display: none;">
+            <h2>🎁 Além disso, você recebe 4 bônus gratuitos (só hoje!)</h2>
+            <div class="bonus-items">
+                <div class="bonus-item">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>Guia de precificação inteligente para lucrar mais</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fa-solid fa-box-archive"></i>
+                    <span>Ideias de embalagens criativas que encantam clientes</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Checklist de primeiros passos para começar a vender rápido</span>
+                </div>
+                <div class="bonus-item">
+                    <i class="fa-solid fa-comments-dollar"></i>
+                    <span>Mini treinamento: como vender Mochi pelo WhatsApp e redes sociais</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 7. Urgency Timer -->
+        <div id="timer-section" class="timer-container" style="display: none;">
+            <p>⚠️ Atenção: essa condição especial expira quando o tempo acabar.</p>
+            <div id="timer">15:00</div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- Configuration ---
+            const buttonDelayInMinutes = 5; // Aparece após 5 minutos
+            const buttonDelayInMilliseconds = buttonDelayInMinutes * 60 * 1000;
+
+            // --- Elements ---
+            const ctaButton = document.getElementById('cta-button');
+            const priceDisplay = document.getElementById('price-display');
+            const securePaymentImg = document.getElementById('secure-payment-img'); // ✅ Get the image element
+            const benefitsList = document.getElementById('benefits');
+            const bonusSection = document.getElementById('bonus-section');
+            const timerSection = document.getElementById('timer-section');
+
+            // Function to show all hidden elements
+            function showOfferElements() {
+                ctaButton.style.display = 'block';
+                priceDisplay.style.display = 'block';
+                securePaymentImg.style.display = 'block'; // ✅ Show the image
+                benefitsList.style.display = 'block';
+                bonusSection.style.display = 'block';
+                timerSection.style.display = 'block';
+            }
+
+            // Set timeout to show elements
+            setTimeout(showOfferElements, buttonDelayInMilliseconds);
+
+            // --- Urgency Timer Logic ---
+            const timerDisplay = document.getElementById('timer');
+            const timerDuration = 15 * 60; // 15 minutes in seconds
+
+            let timer = timerDuration, minutes, seconds;
+            
+            const interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                timerDisplay.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    timerDisplay.textContent = "00:00";
+                    document.querySelector('.timer-container p').textContent = "⚠️ Oferta encerrada!";
+                }
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>

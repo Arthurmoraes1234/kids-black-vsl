@@ -78,32 +78,68 @@
 
         .container {
             width: 100%;
-            max-width: 720px; /* A little wider for content */
+            max-width: 720px;
             text-align: center;
         }
 
-        /* --- Headline --- */
+        /* --- Headline & Video --- */
         .headline {
             font-size: 2.2rem;
             font-weight: 900;
-            margin-bottom: 25px;
+            margin-bottom: 15px; /* Adjusted margin */
             color: var(--dark-text);
             line-height: 1.3;
         }
 
-        /* --- VSL Video --- */
+        /* --- NOVO: Retângulo de aviso do vídeo --- */
+        .video-prompt {
+            background: linear-gradient(90deg, var(--bonus-bg), var(--red-cta));
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         #ifr_68aa4bed6d0925b03d7b09d5_wrapper {
              border-radius: 12px;
              overflow: hidden;
              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+        
+        /* --- Seção da Oferta (que aparece depois de 5 min) --- */
+        #offer-section {
+            margin-top: 30px;
+        }
+        
+        /* --- NOVO: Texto de urgência --- */
+        .urgency-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 15px;
+            background-color: #fffbe6;
+            border: 2px solid #facc15;
+            color: #713f12;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
 
-        /* --- CTA Button --- */
+        /* --- Preço --- */
+        .price {
+            margin-top: 25px;
+            font-size: 1.5rem; /* Ajustado para melhor visualização */
+            font-weight: 400;
+            color: var(--dark-text);
+            line-height: 1.4;
+        }
+
+        /* --- Botão CTA --- */
         .cta-button {
-            display: none; /* Initially hidden */
+            display: block; /* Alterado de none para block, já que o container pai controla a visibilidade */
             width: 100%;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 15px;
             background-color: var(--red-cta);
             color: var(--white);
             font-size: 1.4rem;
@@ -122,32 +158,18 @@
             box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
         }
 
-        /* --- Price Display --- */
-        .price {
-            margin-top: 15px;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--price-color);
-        }
-        .price span {
-            text-decoration: line-through;
-            opacity: 0.6;
-            font-size: 1.3rem;
-            margin-right: 10px;
-        }
-        
-        /* --- Secure Payment Image --- */
-        .secure-payment-img {
-            max-width: 350px;
+        /* --- NOVO: Mockup do Produto --- */
+        .product-mockup {
+            max-width: 450px;
             width: 100%;
-            margin-top: 20px; /* Space between price and image */
+            margin: 30px auto 0 auto;
         }
 
-        /* --- Benefits List --- */
+        /* --- Lista de Benefícios --- */
         .benefits-list {
             list-style: none;
             padding: 0;
-            margin: 30px auto 0 auto;
+            margin: 40px auto 0 auto;
             text-align: left;
             max-width: 500px;
         }
@@ -163,7 +185,7 @@
             font-size: 1.2rem;
         }
         
-        /* --- Bonus Section --- */
+        /* --- Seção de Bônus --- */
         .bonus-banner {
             background-color: var(--bonus-bg);
             color: var(--dark-text);
@@ -189,34 +211,58 @@
             padding: 10px 15px;
             border-radius: 8px;
             text-align: left;
-            flex-basis: calc(50% - 10px); /* Two columns layout */
+            flex-basis: calc(50% - 10px);
         }
         .bonus-item i {
             font-size: 1.5rem;
             margin-right: 10px;
             color: var(--red-cta);
         }
-
-        /* --- Urgency Timer --- */
-        .timer-container {
+        
+        /* --- NOVO: Seção de Garantia --- */
+        .guarantee-section {
             margin-top: 40px;
-            padding: 15px;
-            border: 2px dashed var(--red-cta);
-            border-radius: 10px;
+            padding: 25px;
+            background-color: var(--white);
+            border: 2px solid var(--bonus-bg);
+            border-radius: 12px;
         }
-        .timer-container p {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+        .guarantee-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
-        #timer {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--red-cta);
-            letter-spacing: 2px;
+        .guarantee-section p {
+            max-width: 550px;
+            margin: 0 auto 20px auto;
+        }
+        .guarantee-section img {
+            max-width: 120px;
         }
 
-        /* --- Responsive Adjustments --- */
+        /* --- NOVO: Seção FAQ --- */
+        .faq-section {
+            margin-top: 40px;
+            text-align: left;
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+        }
+        .faq-item {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--dark-text);
+        }
+
+        /* --- Ajustes Responsivos --- */
         @media (max-width: 600px) {
             .headline {
                 font-size: 1.8rem;
@@ -228,7 +274,7 @@
                 font-size: 1.5rem;
             }
             .bonus-item {
-                flex-basis: 100%; /* Full width on small screens */
+                flex-basis: 100%;
             }
         }
     </style>
@@ -241,6 +287,11 @@
         <h1 class="headline">
             Descubra o doce viral que quase ninguém no Brasil vende e pode te dar até 3 mil reais em um único final de semana.
         </h1>
+        
+        <!-- NOVO: Retângulo de aviso -->
+        <div class="video-prompt">
+            assista o video entenda, antes que saia do ar!
+        </div>
 
         <!-- 2. VSL Video Embed -->
         <script type="text/javascript"> 
@@ -255,107 +306,110 @@
             </div> 
         </div>
 
-        <!-- 3. Delayed CTA Button -->
-        <a href="https://checkout.novopagamento.site/VCCL1O8SC34L" id="cta-button" class="cta-button">
-            Quero acessar o Método Mochi Lucrativo agora
-        </a>
+        <!-- ======================================================= -->
+        <!-- INÍCIO DA SEÇÃO DE OFERTA (aparece após 5 minutos) -->
+        <!-- ======================================================= -->
+        <div id="offer-section" style="display: none;">
 
-        <!-- 4. Price Display -->
-        <p id="price-display" class="price" style="display: none;">
-            <span>De R$197,00</span> por apenas R$19,90 hoje.
-        </p>
+            <!-- 1. Título de urgência -->
+            <p class="urgency-text">🚨 Pra você que viu até aqui: liberei apenas 10 acessos por esse valor promocional.</p>
 
-        <!-- ✅ IMAGE ADDED HERE -->
-        <img src="https://i.imgur.com/Zi55bLN.png" alt="Pagamento Seguro" id="secure-payment-img" class="secure-payment-img" style="display: none;">
+            <!-- 2. Preço -->
+            <p id="price-display" class="price">
+                <span style="text-decoration: line-through; color: #999;">De R$197,00</span><br>
+                <strong style="font-size: 1.6rem; color: #e63946;">Por apenas R$19,90 hoje</strong>
+            </p>
 
+            <!-- 3. Botão CTA -->
+            <a href="https://checkout.novopagamento.site/VCCL1O8SC34L" id="cta-button" class="cta-button">
+                Comprar agora o Método Mochi Lucrativo
+            </a>
 
-        <!-- 5. Benefits List -->
-        <ul id="benefits" class="benefits-list" style="display: none;">
-            <li><i class="fa-solid fa-circle-play"></i>Aulas passo a passo em vídeo mostrando como fazer o Mochi</li>
-            <li><i class="fa-solid fa-seedling"></i>Receita adaptada para o Brasil com ingredientes acessíveis</li>
-            <li><i class="fa-solid fa-kitchen-set"></i>Produção simples sem fogão, direto na sua cozinha</li>
-            <li><i class="fa-solid fa-bullseye"></i>Estratégia de vendas para fechar encomendas já no primeiro final de semana</li>
-        </ul>
-        
-        <!-- 6. Bonus Section -->
-        <div id="bonus-section" class="bonus-banner" style="display: none;">
-            <h2>🎁 Além disso, você recebe 4 bônus gratuitos (só hoje!)</h2>
-            <div class="bonus-items">
-                <div class="bonus-item">
-                    <i class="fa-solid fa-calculator"></i>
-                    <span>Guia de precificação inteligente para lucrar mais</span>
-                </div>
-                <div class="bonus-item">
-                    <i class="fa-solid fa-box-archive"></i>
-                    <span>Ideias de embalagens criativas que encantam clientes</span>
-                </div>
-                <div class="bonus-item">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span>Checklist de primeiros passos para começar a vender rápido</span>
-                </div>
-                <div class="bonus-item">
-                    <i class="fa-solid fa-comments-dollar"></i>
-                    <span>Mini treinamento: como vender Mochi pelo WhatsApp e redes sociais</span>
+            <!-- 4. Mockup do curso -->
+            <img src="https://i.imgur.com/Zi55bLN.png" alt="Mockup do Método Mochi Lucrativo" class="product-mockup">
+
+            <!-- 5. Lista de benefícios -->
+            <ul id="benefits" class="benefits-list">
+                <li><i class="fa-solid fa-circle-play"></i>Aulas passo a passo em vídeo mostrando como fazer o Mochi</li>
+                <li><i class="fa-solid fa-seedling"></i>Receita adaptada para o Brasil com ingredientes acessíveis</li>
+                <li><i class="fa-solid fa-kitchen-set"></i>Produção simples sem fogão, direto na sua cozinha</li>
+                <li><i class="fa-solid fa-bullseye"></i>Estratégia de vendas para fechar encomendas já no primeiro final de semana</li>
+            </ul>
+            
+            <!-- 6. Seção de bônus -->
+            <div id="bonus-section" class="bonus-banner">
+                <h2>🎁 Além disso, você recebe 4 bônus gratuitos (só hoje!)</h2>
+                <div class="bonus-items">
+                    <div class="bonus-item">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Guia de precificação inteligente para lucrar mais</span>
+                    </div>
+                    <div class="bonus-item">
+                        <i class="fa-solid fa-box-archive"></i>
+                        <span>Ideias de embalagens criativas que encantam clientes</span>
+                    </div>
+                    <div class="bonus-item">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Checklist de primeiros passos para começar a vender rápido</span>
+                    </div>
+                    <div class="bonus-item">
+                        <i class="fa-solid fa-comments-dollar"></i>
+                        <span>Mini treinamento: como vender Mochi pelo WhatsApp e redes sociais</span>
+                    </div>
                 </div>
             </div>
+            
+            <!-- 7. Garantia de 30 dias -->
+            <div class="guarantee-section">
+                <h2>✅ Garantia incondicional de 30 dias</h2>
+                <p>Você pode acessar todo o conteúdo, aplicar as aulas e ver os resultados. Se dentro de 30 dias sentir que não valeu a pena, basta enviar um e-mail e devolvemos 100% do seu investimento.</p>
+                <img src="https://i.imgur.com/fh7r0Fj.png" alt="Selo Garantia 30 Dias">
+            </div>
+
+            <!-- 8. FAQ – perguntas e respostas -->
+            <div class="faq-section">
+                <h2>❓ Perguntas frequentes</h2>
+                <div class="faq-item">
+                    <h3>Preciso ter experiência na cozinha?</h3>
+                    <p>Não! O método foi feito para iniciantes. Basta seguir o passo a passo em vídeo.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>É caro produzir o Mochi?</h3>
+                    <p>De jeito nenhum! Cada unidade custa centavos para produzir e você pode vender por um valor alto, com muita margem de lucro.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Em quanto tempo vou começar a vender?</h3>
+                    <p>Se aplicar as estratégias, é possível fechar suas primeiras encomendas já no primeiro final de semana.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Funciona mesmo sem cozinha profissional?</h3>
+                    <p>Sim. Você só precisa da sua cozinha comum. Não exige fogão nem forno.</p>
+                </div>
+            </div>
+
         </div>
-        
-        <!-- 7. Urgency Timer -->
-        <div id="timer-section" class="timer-container" style="display: none;">
-            <p>⚠️ Atenção: essa condição especial expira quando o tempo acabar.</p>
-            <div id="timer">15:00</div>
-        </div>
+        <!-- ======================================================= -->
+        <!-- FIM DA SEÇÃO DE OFERTA -->
+        <!-- ======================================================= -->
 
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // --- Configuration ---
-            const buttonDelayInMinutes = 5; // Aparece após 5 minutos
+            // --- Configuração ---
+            const buttonDelayInMinutes = 5; // A oferta aparece após 5 minutos
             const buttonDelayInMilliseconds = buttonDelayInMinutes * 60 * 1000;
 
-            // --- Elements ---
-            const ctaButton = document.getElementById('cta-button');
-            const priceDisplay = document.getElementById('price-display');
-            const securePaymentImg = document.getElementById('secure-payment-img'); // ✅ Get the image element
-            const benefitsList = document.getElementById('benefits');
-            const bonusSection = document.getElementById('bonus-section');
-            const timerSection = document.getElementById('timer-section');
+            // --- Elementos ---
+            const offerSection = document.getElementById('offer-section');
 
-            // Function to show all hidden elements
+            // Função para mostrar a seção da oferta
             function showOfferElements() {
-                ctaButton.style.display = 'block';
-                priceDisplay.style.display = 'block';
-                securePaymentImg.style.display = 'block'; // ✅ Show the image
-                benefitsList.style.display = 'block';
-                bonusSection.style.display = 'block';
-                timerSection.style.display = 'block';
+                offerSection.style.display = 'block';
             }
 
-            // Set timeout to show elements
+            // Define o tempo para mostrar os elementos
             setTimeout(showOfferElements, buttonDelayInMilliseconds);
-
-            // --- Urgency Timer Logic ---
-            const timerDisplay = document.getElementById('timer');
-            const timerDuration = 15 * 60; // 15 minutes in seconds
-
-            let timer = timerDuration, minutes, seconds;
-            
-            const interval = setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                timerDisplay.textContent = minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    clearInterval(interval);
-                    timerDisplay.textContent = "00:00";
-                    document.querySelector('.timer-container p').textContent = "⚠️ Oferta encerrada!";
-                }
-            }, 1000);
         });
     </script>
 

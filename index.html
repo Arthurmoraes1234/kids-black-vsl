@@ -112,8 +112,10 @@
         }
         
         /* --- Seção da Oferta (que aparece depois de 5 min) --- */
+        /* Removendo 'display: none;' para que a seção apareça imediatamente */
         #offer-section {
             margin-top: 30px;
+            /* display: none;  <-- Removido */
         }
         
         /* --- Texto de urgência --- */
@@ -304,7 +306,8 @@
         <!-- ======================================================= -->
         <!-- INÍCIO DA SEÇÃO DE OFERTA (aparece após 5 minutos) -->
         <!-- ======================================================= -->
-        <div id="offer-section" style="display: none;">
+        <!-- Removido 'style="display: none;"' para que a seção apareça imediatamente -->
+        <div id="offer-section">
 
             <!-- 1. Título de urgência -->
             <p class="urgency-text">🚨 Pra você que viu até aqui: liberei apenas agora 5 acessos por esse valor promocional.</p>
@@ -399,19 +402,19 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // --- Configuração ---
-            const buttonDelayInMinutes = 4; // A oferta agora aparece após 4 minutos
-            const buttonDelayInMilliseconds = buttonDelayInMinutes * 60 * 1000;
+            // const buttonDelayInMinutes = 4; // A oferta agora aparece após 4 minutos
+            // const buttonDelayInMilliseconds = buttonDelayInMinutes * 60 * 1000;
 
             // --- Elementos ---
             const offerSection = document.getElementById('offer-section');
 
             // Função para mostrar a seção da oferta
             function showOfferElements() {
-                offerSection.style.display = 'block';
+                offerSection.style.display = 'block'; // Garante que esteja visível se o CSS inicial esconder
             }
 
-            // Define o tempo para mostrar os elementos
-            setTimeout(showOfferElements, buttonDelayInMilliseconds);
+            // Chama a função imediatamente para exibir a oferta no carregamento da página
+            showOfferElements(); 
         });
     </script>
 

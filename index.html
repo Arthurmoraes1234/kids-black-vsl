@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método Mochi Lucrativo</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Poppins e Montserrat (para fallback) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -53,14 +53,18 @@
     <style>
         /* --- Reset and Base Styles --- */
         :root {
-            --red-cta: #e63946;
-            --dark-text: #1d3557;
-            --light-bg: #f1faee;
+            /* Cores Pastéis */
+            --pastel-pink: #FFD1DC; /* Rosa claro */
+            --pastel-blue: #A7DBD8; /* Azul turquesa claro */
+            --pastel-green: #CDEAC0; /* Verde menta */
+            --pastel-yellow: #FAE3B9; /* Amarelo pálido */
+            --pastel-lavender: #E6E6FA; /* Lavanda claro */
+            --dark-accent: #6C5B7B; /* Um roxo/cinza para textos mais escuros */
+            --medium-text: #88B04B; /* Verde para textos médios */
             --white: #ffffff;
-            --bonus-bg: #a8dadc;
-            --price-color: #000000;
-            --green-icon: #2a9d8f;
-            --gold-highlight: #ffc107; /* Para destaque do plano premium */
+            --cta-main: #FF69B4; /* Um rosa mais vibrante para o CTA principal */
+            --cta-secondary: #88B04B; /* Verde para CTA secundário */
+            --gold-highlight-pastel: #FFD700; /* Ouro mais suave */
         }
 
         * {
@@ -70,9 +74,9 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--dark-text);
+            font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+            background-color: var(--pastel-lavender); /* Fundo lavanda suave */
+            color: var(--dark-accent);
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -87,130 +91,136 @@
         }
 
         section {
-            margin-bottom: 50px; /* Espaçamento entre as seções */
+            margin-bottom: 50px;
             width: 100%;
         }
 
         /* --- Headline & Video --- */
         .headline {
-            font-size: 2.2rem;
+            font-size: 2.5rem; /* Aumentado para mais impacto */
             font-weight: 900;
-            margin-bottom: 15px;
-            color: var(--dark-text);
-            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--dark-accent);
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Leve sombra */
         }
 
         .video-prompt {
-            background: linear-gradient(90deg, #fef3c7, #fee2e2);
-            color: var(--dark-text);
-            border: 1px solid #fde68a;
-            padding: 12px 20px;
-            border-radius: 8px;
+            background: linear-gradient(90deg, var(--pastel-yellow), var(--pastel-pink));
+            color: var(--dark-accent);
+            border: 1px solid var(--pastel-yellow);
+            padding: 15px 20px;
+            border-radius: 10px;
             font-weight: 700;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            font-size: 1.1rem;
         }
 
         #ifr_68ad2003b52da05c0d97dbc9_wrapper {
-             border-radius: 12px;
+             border-radius: 15px;
              overflow: hidden;
-             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
         /* --- Textos e Listas padrão --- */
         .section-text {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-top: 30px;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 25px;
+            color: var(--medium-text);
         }
 
         .bullet-list {
             list-style: none;
             padding: 0;
-            margin: 20px auto;
+            margin: 25px auto;
             text-align: left;
             max-width: 500px;
         }
         .bullet-list li {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
+            color: var(--dark-accent);
         }
         .bullet-list i {
-            color: var(--green-icon);
-            margin-right: 12px;
-            font-size: 1.2rem;
+            color: var(--cta-secondary); /* Ícone verde mais vibrante */
+            margin-right: 15px;
+            font-size: 1.3rem;
         }
 
         /* --- Botão CTA --- */
         .cta-button {
             display: block;
             width: 100%;
-            padding: 18px;
-            margin-top: 25px;
-            background-color: var(--red-cta);
+            padding: 20px;
+            margin-top: 30px;
+            background-color: var(--cta-main);
             color: var(--white);
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             text-decoration: none;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4); /* Sombra mais vibrante */
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
             transform: scale(1.03);
-            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
         }
         /* Botão secundário, para CTA no meio do conteúdo */
         .cta-button-secondary {
-            background-color: #2a9d8f; /* Um verde/azul turquesa */
-            box-shadow: 0 5px 15px rgba(42, 157, 143, 0.4);
+            background-color: var(--cta-secondary);
+            box-shadow: 0 6px 20px rgba(136, 176, 75, 0.4);
         }
         .cta-button-secondary:hover {
-            box-shadow: 0 8px 25px rgba(42, 157, 143, 0.5);
+            box-shadow: 0 10px 30px rgba(136, 176, 75, 0.6);
         }
 
 
         /* --- Seção de Depoimentos (Carrossel) --- */
         .testimonials-section {
             background-color: var(--white);
-            padding: 30px 0;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 40px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             position: relative;
-            overflow: hidden; /* Necessário para o carrossel */
+            overflow: hidden;
         }
         .testimonials-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: var(--dark-text);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark-accent);
+            font-weight: 800;
         }
 
         .carousel-container {
             display: flex;
-            overflow-x: scroll; /* Permite rolagem horizontal */
-            scroll-snap-type: x mandatory; /* Para rolagem suave e com "snap" */
-            -webkit-overflow-scrolling: touch; /* Melhoria de performance em iOS */
-            gap: 20px;
-            padding: 0 20px; /* Espaço nas laterais para ver o próximo item */
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 25px;
+            padding: 0 25px;
         }
         .carousel-container::-webkit-scrollbar {
-            display: none; /* Esconde a barra de rolagem */
+            display: none;
         }
         .testimonial-item {
-            flex: 0 0 calc(100% - 40px); /* 100% da largura menos padding */
+            flex: 0 0 calc(100% - 50px);
             scroll-snap-align: start;
-            min-width: calc(100% - 40px); /* Garante que um item ocupe quase toda a largura */
-            background-color: var(--light-bg);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            min-width: calc(100% - 50px);
+            background-color: var(--pastel-lavender);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -220,202 +230,226 @@
         .testimonial-item img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .testimonial-item p {
             font-style: italic;
-            font-size: 1rem;
-            color: #457b9d;
+            font-size: 1.1rem;
+            color: var(--dark-accent);
+            font-weight: 600;
         }
 
         /* --- Seção "O que você vai receber" (Produto Mockup e Lista) --- */
         .product-content-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 35px;
+            font-weight: 800;
+            color: var(--dark-accent);
         }
         .product-mockup {
-            max-width: 450px;
+            max-width: 500px;
             width: 100%;
-            margin: 30px auto 0 auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin: 35px auto 0 auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
         }
         .product-content-list {
             list-style: none;
             padding: 0;
-            margin: 40px auto 0 auto;
+            margin: 45px auto 0 auto;
             text-align: left;
-            max-width: 500px;
+            max-width: 550px;
         }
         .product-content-list li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1.15rem;
+            margin-bottom: 18px;
             display: flex;
-            align-items: flex-start; /* Alinha o ícone e o texto no topo */
-            color: var(--dark-text);
+            align-items: flex-start;
+            color: var(--dark-accent);
         }
         .product-content-list i {
-            color: var(--green-icon);
-            margin-right: 15px;
-            font-size: 1.5rem; /* Ícones maiores para destaque */
-            flex-shrink: 0; /* Evita que o ícone diminua */
+            color: var(--cta-secondary);
+            margin-right: 18px;
+            font-size: 1.6rem;
+            flex-shrink: 0;
         }
         .product-content-list .highlight-item {
             font-weight: 700;
-            color: var(--red-cta); /* Destacar o item principal */
-            font-size: 1.2rem;
+            color: var(--cta-main);
+            font-size: 1.25rem;
         }
 
         /* --- Seção de Bônus --- */
         .bonus-section {
-            background-color: var(--bonus-bg);
-            color: var(--dark-text);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background-color: var(--pastel-blue);
+            color: var(--dark-accent);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         .bonus-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: var(--dark-text);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark-accent);
+            font-weight: 800;
         }
         .bonus-items-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Uma coluna por padrão */
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 25px;
         }
         .bonus-item-card {
             background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             text-align: left;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: flex;
             align-items: center;
         }
         .bonus-item-card i {
-            font-size: 1.8rem;
-            margin-right: 15px;
-            color: var(--red-cta);
+            font-size: 2rem;
+            margin-right: 20px;
+            color: var(--cta-main); /* Ícone com a cor do CTA principal */
             flex-shrink: 0;
         }
         .bonus-item-card span {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark-accent);
         }
         @media (min-width: 550px) {
             .bonus-items-grid {
-                grid-template-columns: 1fr 1fr; /* Duas colunas em telas maiores */
+                grid-template-columns: 1fr 1fr;
             }
         }
 
 
         /* --- Seção de Planos (Oferta Final) --- */
         .offer-plans-section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--dark-text);
+            font-size: 2.2rem;
+            margin-bottom: 35px;
+            color: var(--dark-accent);
+            font-weight: 900;
         }
         .plans-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 35px;
         }
         .plan-card {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             text-align: left;
             position: relative;
         }
         .plan-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--dark-text);
+            font-size: 2rem;
+            margin-bottom: 18px;
+            color: var(--dark-accent);
+            font-weight: 800;
         }
         .plan-card .price-tag {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--red-cta);
-            margin-bottom: 20px;
+            color: var(--cta-main);
+            margin-bottom: 25px;
         }
         .plan-card .price-tag span {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             display: block;
-            margin-top: 5px;
+            margin-top: 8px;
+            font-weight: 900;
         }
         .plan-card ul {
             list-style: none;
             padding: 0;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         .plan-card ul li {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 10px;
-            font-size: 1rem;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--dark-accent);
         }
         .plan-card ul li i {
-            color: var(--green-icon);
-            margin-right: 10px;
-            font-size: 1.2rem;
+            color: var(--cta-secondary);
+            margin-right: 12px;
+            font-size: 1.3rem;
             flex-shrink: 0;
         }
         .plan-card ul li.highlight-bullet i {
-            color: var(--red-cta); /* Ícone em destaque para bullets do plano completo */
+            color: var(--cta-main);
         }
         .plan-card .cta-plan-button {
             display: block;
             width: 100%;
-            padding: 15px;
-            background-color: var(--red-cta);
+            padding: 18px;
+            background-color: var(--cta-main);
             color: var(--white);
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 800;
             text-decoration: none;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             text-transform: uppercase;
             transition: background-color 0.2s;
+            letter-spacing: 0.8px;
         }
         .plan-card .cta-plan-button:hover {
-            background-color: #d12e3e;
+            background-color: #e05ca0; /* Um tom um pouco mais escuro do CTA principal */
         }
 
         /* Destaque para o plano Premium */
         .plan-card.premium {
-            border: 3px solid var(--gold-highlight);
-            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
-            transform: scale(1.02);
+            border: 3px solid var(--gold-highlight-pastel);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+            transform: scale(1.03);
+            z-index: 1; /* Para garantir que o destaque esteja acima */
         }
         .plan-card.premium::before {
             content: "Mais Indicado!";
             position: absolute;
-            top: -15px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: var(--gold-highlight);
-            color: var(--dark-text);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
+            background-color: var(--gold-highlight-pastel);
+            color: var(--dark-accent);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1rem;
             white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .plan-card.premium .price-tag {
-            color: var(--dark-text);
+            color: var(--dark-accent); /* Cor do texto mais escuro para o preço premium */
         }
         .plan-card.premium .cta-plan-button {
-            background-color: var(--gold-highlight);
-            color: var(--dark-text);
+            background-color: var(--gold-highlight-pastel);
+            color: var(--dark-accent);
         }
         .plan-card.premium .cta-plan-button:hover {
-            background-color: #e0ac00;
+            background-color: #e0c100;
         }
+        .plan-card.premium h4 {
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: var(--dark-accent);
+            font-weight: 700;
+        }
+        .plan-card.premium ul li i.fa-gift {
+            color: var(--gold-highlight-pastel);
+        }
+
 
         @media (min-width: 600px) {
             .plans-container {
@@ -426,26 +460,28 @@
 
         /* --- Seção de Garantia --- */
         .guarantee-section {
-            padding: 30px;
+            padding: 40px;
             background-color: var(--white);
-            border: 2px solid var(--bonus-bg);
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 2px solid var(--pastel-blue);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         .guarantee-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--dark-text);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-accent);
+            font-weight: 800;
         }
         .guarantee-section p {
-            max-width: 550px;
-            margin: 0 auto 20px auto;
-            font-size: 1.1rem;
-            color: #457b9d;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            font-size: 1.15rem;
+            color: var(--dark-accent);
+            line-height: 1.7;
         }
         .guarantee-section img {
-            max-width: 120px;
-            margin-top: 15px;
+            max-width: 140px;
+            margin-top: 20px;
         }
 
         /* --- Seção FAQ --- */
@@ -454,64 +490,67 @@
         }
         .faq-section h2 {
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: var(--dark-text);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark-accent);
+            font-weight: 800;
         }
         .faq-item {
             background-color: var(--white);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
         }
         .faq-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: var(--dark-text);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-accent);
             font-weight: 700;
         }
         .faq-item p {
-            font-size: 1rem;
-            color: #457b9d;
+            font-size: 1.05rem;
+            color: var(--dark-accent);
         }
 
 
         /* --- Ajustes Responsivos --- */
         @media (max-width: 600px) {
             .headline {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .cta-button {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+                padding: 18px;
             }
             .section-text {
-                font-size: 1rem;
-            }
-            .bullet-list li, .product-content-list li, .bonus-item-card span, .plan-card ul li {
-                font-size: 0.95rem;
-            }
-            .product-content-list i, .bonus-item-card i {
-                font-size: 1.3rem;
-            }
-            .plan-card h3 {
-                font-size: 1.5rem;
-            }
-            .plan-card .price-tag {
                 font-size: 1.1rem;
             }
-            .plan-card .price-tag span {
-                font-size: 1.8rem;
-            }
-            .cta-plan-button {
+            .bullet-list li, .product-content-list li, .bonus-item-card span, .plan-card ul li {
                 font-size: 1rem;
             }
+            .product-content-list i, .bonus-item-card i {
+                font-size: 1.4rem;
+            }
+            .plan-card h3 {
+                font-size: 1.7rem;
+            }
+            .plan-card .price-tag {
+                font-size: 1.2rem;
+            }
+            .plan-card .price-tag span {
+                font-size: 2.2rem;
+            }
+            .cta-plan-button {
+                font-size: 1.1rem;
+            }
             .testimonials-section h2, .product-content-section h2, .bonus-section h2, .offer-plans-section h2, .guarantee-section h2, .faq-section h2 {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
             }
             .plan-card.premium::before {
-                font-size: 0.8rem;
-                top: -12px;
+                font-size: 0.9rem;
+                top: -15px;
+                padding: 6px 15px;
             }
         }
     </style>
@@ -668,29 +707,3 @@
             <p>Você pode acessar todo o conteúdo, aplicar as aulas e ver os resultados. Se dentro de 30 dias sentir que não valeu a pena, basta enviar um e-mail e devolvemos 100% do seu investimento.</p>
              
         </section>
-
-        <!-- Seção FAQ – perguntas e respostas -->
-        <section class="faq-section">
-            <h2>❓ Perguntas frequentes</h2>
-            <div class="faq-item">
-                <h3>Preciso ter experiência na cozinha?</h3>
-                <p>Não! O método foi feito para iniciantes. Basta seguir o passo a passo em vídeo.</p>
-            </div>
-            <div class="faq-item">
-                <h3>É caro produzir o Mochi?</h3>
-                <p>De jeito nenhum! Cada unidade custa centavos para produzir e você pode vender por um valor alto, com muita margem de lucro.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Em quanto tempo vou começar a vender?</h3>
-                <p>Se aplicar as estratégias, é possível fechar suas primeiras encomendas já no primeiro final de semana.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Funciona mesmo sem cozinha profissional?</h3>
-                <p>Sim. Você só precisa da sua cozinha comum. Não exige fogão nem forno.</p>
-            </div>
-        </section>
-
-    </div>
-
-</body>
-</html>

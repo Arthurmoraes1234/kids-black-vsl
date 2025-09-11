@@ -17,13 +17,18 @@
             --white: #FFFFFF;
         }
 
+        /* Adicionado para rolagem suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-light);
             color: var(--dark-text);
             text-align: center;
-            font-size: 16px; /* Base para mobile */
+            font-size: 16px;
         }
 
         .container {
@@ -59,7 +64,7 @@
 
         .hero img.logo {
             max-width: 120px;
-            margin-bottom: 5px; /* LOGO COLADA NO TÍTULO */
+            margin-bottom: 5px;
         }
 
         .hero h1 {
@@ -163,29 +168,24 @@
         .faq-item .answer { font-size: 1rem; padding-top: 5px; padding-left: 34px; }
         footer { padding: 30px; font-size: 0.9rem; color: #aaa; }
 
-        /* --- AJUSTES PARA MOBILE (PRIORIDADE MÁXIMA) --- */
         @media (max-width: 768px) {
             .container { padding: 15px; }
             section { padding: 40px 15px; }
             
-            /* Hero Section Mobile */
-            .hero h1 { font-size: 2.1rem; /* TÍTULO MENOR */ }
+            .hero h1 { font-size: 2.1rem; }
             .hero h2 { font-size: 1.1rem; line-height: 1.5; }
             .video-placeholder { height: 250px; }
             .cta-button { font-size: 1.2rem; padding: 15px 30px; }
             .checklist { flex-direction: column; gap: 10px; align-items: center; }
 
-            /* Seção UAU Mobile */
             .wow-content-wrapper { flex-direction: column; text-align: center; gap: 30px; }
             .wow-text { text-align: left; }
             .wow-text h3 { font-size: 2rem; text-align: center; }
 
-            /* Títulos e Planos Mobile */
             .section-title { font-size: 2rem; }
             .offer-plans { gap: 30px; }
-            .plan { width: 100%; max-width: 380px; /* Evita ficar largo demais */ transform: none !important; /* Remove o zoom no mobile */ }
+            .plan { width: 100%; max-width: 380px; transform: none !important; }
             
-            /* Depoimentos Mobile */
             .testimonial-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -211,7 +211,7 @@
             <h1>Aprenda a fazer o doce japonês que viralizou no TikTok</h1>
             <h2>São 30 receitas de Mochi adaptadas para o Brasil – fáceis, rápidas e sem precisar de fogão!</h2>
             <div class="video-placeholder">[ vídeo curto de celular mostrando várias receitas passando na tela]</div>
-            <a href="#" class="cta-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero minhas 30 receitas agora</a>
+            <a href="#oferta" class="cta-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero minhas 30 receitas agora</a>
             <p class="price-tag">Apenas hoje por R$10 reais</p>
             <ul class="checklist">
                 <li><svg class="icon"><use xlink:href="#icon-check"/></svg>Acesso vitalício</li>
@@ -250,7 +250,7 @@
                 <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Ingredientes baratos encontrados em qualquer mercado</li>
                 <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Sugestões criativas para deixar seus Mochis instagramáveis</li>
             </ul>
-            <a href="#" class="cta-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero acessar agora</a>
+            <a href="#oferta" class="cta-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero acessar agora</a>
         </div>
     </section>
 
@@ -266,7 +266,8 @@
         </div>
     </section>
 
-    <section class="offer">
+    <!-- Adicionado o ID aqui -->
+    <section class="offer" id="oferta">
         <div class="container">
             <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos" style="max-width: 280px; margin-bottom: 20px;">
             <h2 class="section-title">Escolha seu plano</h2>
@@ -280,7 +281,7 @@
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Receitas simples e fáceis de fazer</li>
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Acesso por e-mail e whatsapp</li>
                     </ul>
-                    <a href="#" class="plan-button basic-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero o Básico por R$10</a>
+                    <a href="https://bellavitaexpress.mycartpanda.com/checkout/196744094:1" class="plan-button basic-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero o Básico por R$10</a>
                     <div class="payment-info">Pagamento único, acesso por 3 meses</div>
                 </div>
                 <div class="plan complete">
@@ -295,7 +296,7 @@
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Checklist de ingredientes baratos</li>
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Acesso imediato + bônus</li>
                     </ul>
-                    <a href="#" class="plan-button complete-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero o Completo por R$17</a>
+                    <a href="https://bellavitaexpress.mycartpanda.com/checkout/196744095:1" class="plan-button complete-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero o Completo por R$17</a>
                     <div class="payment-info">Pagamento único, acesso pra sempre</div>
                 </div>
             </div>

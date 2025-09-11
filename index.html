@@ -6,7 +6,7 @@
     <title>Curso de Mochi - O Doce que Viralizou</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-light: #FFF9FB;
@@ -26,7 +26,7 @@
         }
 
         .container {
-            max-width: 960px; /* Aumentado para preencher mais a tela */
+            max-width: 1200px; /* LAYOUT GRANDE, COMO SOLICITADO */
             margin: 0 auto;
             padding: 20px;
         }
@@ -51,37 +51,37 @@
             height: 1.4em;
         }
 
-        /* --- Seção 1: Hero --- */
+        /* --- SEÇÃO 1 (HERO) - MAIS COMPACTA --- */
         .hero {
             background: linear-gradient(145deg, var(--soft-pink), var(--soft-lilac));
-            padding: 25px 20px 60px 20px;
+            padding: 20px 20px 50px 20px; /* Menos padding */
         }
 
         .hero img.logo {
             max-width: 120px;
-            margin-bottom: 5px;
+            margin-bottom: 10px; /* Mais próximo */
         }
 
         .hero h1 {
-            font-size: 3rem; /* Título um pouco maior para a nova largura */
-            font-weight: 700;
+            font-size: 3.2rem;
+            font-weight: 800; /* Mais peso */
             line-height: 1.2;
-            margin: 0;
+            margin: 0 0 10px 0; /* Margem ajustada */
         }
 
         .hero h2 {
-            font-size: 1.4rem; /* Subtítulo maior */
+            font-size: 1.4rem;
             font-weight: 400;
             max-width: 700px;
-            margin: 15px auto 30px auto;
+            margin: 0 auto 25px auto; /* Mais próximo */
         }
 
         .video-placeholder {
             background-color: #fff;
             width: 100%;
-            max-width: 500px; /* Maior para acompanhar o layout */
-            height: 310px;
-            margin: 20px auto;
+            max-width: 550px;
+            height: 340px;
+            margin: 0 auto 25px auto; /* Mais próximo */
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -92,24 +92,22 @@
             font-size: 1.1rem;
         }
 
-        .cta-button, .plan-button {
+        .cta-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: transform 0.2s ease-in-out;
-        }
-        
-        .cta-button {
             background-color: var(--primary-cta);
             color: var(--white);
-            padding: 18px 45px;
+            padding: 20px 50px; /* Botão maior */
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             box-shadow: 0 5px 20px rgba(255, 133, 162, 0.5);
+            transition: transform 0.2s ease-in-out;
+            margin-top: 0;
         }
-
+        
         .cta-button:hover {
             transform: scale(1.05);
         }
@@ -117,7 +115,7 @@
         .price-tag {
             font-weight: 600;
             font-size: 1.1rem;
-            margin-top: 15px;
+            margin-top: 10px; /* Mais próximo */
         }
 
         .checklist {
@@ -125,277 +123,143 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
-            font-size: 1rem;
+            gap: 30px;
+            margin-top: 20px; /* Mais próximo */
+            font-size: 1.1rem;
         }
         
-        .checklist li {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .checklist .icon {
-            color: var(--primary-cta);
-        }
+        .checklist li { display: inline-flex; align-items: center; gap: 8px; }
+        .checklist .icon { color: var(--primary-cta); }
 
-        /* --- Seção 2: UAU --- */
+        /* --- SEÇÃO 2 (EFEITO UAU) - REFORMULADA --- */
         .wow-effect {
-            background-color: var(--white);
-        }
-
-        .wow-effect img {
-            max-width: 300px; /* Imagem maior */
-            margin-bottom: 25px;
-        }
-
-        .wow-effect p {
-            font-size: 1.15rem; /* Texto levemente maior */
-            line-height: 1.7;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 20px;
-        }
-
-        /* --- Seção 3: O Que Você Vai Receber --- */
-        .what-you-get {
             background-color: var(--soft-pink);
         }
         
+        .wow-content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-align: left;
+        }
+        
+        .wow-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .wow-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        
+        .wow-text {
+            flex: 1.2; /* Dar um pouco mais de espaço para o texto */
+        }
+        
+        .wow-text h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .wow-text p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        .wow-highlights {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        
+        .wow-highlights li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            background-color: rgba(255,255,255,0.5);
+            padding: 15px;
+            border-radius: 12px;
+        }
+        
+        .wow-highlights .icon {
+            color: var(--primary-cta);
+            flex-shrink: 0;
+        }
+
+        /* Media Query para Seção 2 empilhar em telas menores */
+        @media (max-width: 800px) {
+            .wow-content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .wow-text h3 {
+                text-align: center;
+            }
+        }
+        
+        /* --- Seções 3, 4, 5... --- */
         .section-title {
-            font-size: 2.4rem; /* Títulos maiores */
+            font-size: 2.5rem;
             margin-bottom: 35px;
             display: inline-flex;
             align-items: center;
             gap: 15px;
         }
-
-        .what-you-get ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            max-width: 600px; /* Lista maior */
-            margin: 0 auto 35px auto;
-        }
-
-        .what-you-get li {
-            background-color: rgba(255, 255, 255, 0.6);
-            padding: 18px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
         
-        .what-you-get .icon {
-            color: var(--primary-cta);
-            flex-shrink: 0;
-        }
+        .what-you-get { background-color: var(--white); }
+        .what-you-get ul { max-width: 650px; margin: 0 auto 35px auto; text-align: left; list-style:none; padding: 0; }
+        .what-you-get li { background-color: var(--soft-pink); padding: 18px; border-radius: 12px; margin-bottom: 12px; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 12px; }
+        .what-you-get .icon { color: var(--primary-cta); flex-shrink: 0; }
 
-        /* --- Seção 4: Provas --- */
-        .testimonials {
-            background-color: var(--bg-light);
-            padding-top: 20px;
-        }
+        .testimonials { background-color: var(--bg-light); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .testimonial-card { background-color: var(--white); border: 2px solid var(--soft-pink); padding: 25px; border-radius: 15px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .testimonial-card img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; float: left; margin-right: 15px; }
+        .testimonial-card .author { font-weight: 700; font-size: 1.1rem; padding-top: 10px; }
+        .testimonial-card .location { font-size: 0.9rem; color: #aaa; }
+        .testimonial-card p { margin-top: 15px; clear: both; font-size: 1rem; line-height: 1.6; }
         
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Cards maiores */
-            gap: 25px;
-        }
-        .testimonial-card {
-            background-color: var(--white);
-            border: 2px solid var(--soft-pink);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: left;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .testimonial-card img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            float: left;
-            margin-right: 15px;
-        }
-        .testimonial-card .author {
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding-top: 10px;
-        }
-        .testimonial-card .location {
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        .testimonial-card p {
-            margin-top: 15px;
-            clear: both;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
+        .offer { background-color: var(--white); }
+        .offer p.subtitle { max-width: 600px; margin: 10px auto 40px auto; font-size: 1.1rem; }
+        .offer-plans { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 40px; }
+        .plan { border: 2px solid var(--soft-lilac); border-radius: 20px; padding: 30px; width: 380px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; background-color: var(--white); }
+        .plan.complete { border: 3px solid var(--primary-cta); transform: scale(1.05); box-shadow: 0 10px 30px rgba(255, 133, 162, 0.2); }
+        .plan .badge { background-color: var(--primary-cta); color: var(--white); padding: 8px 18px; border-radius: 12px; font-size: 1rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin: 0 auto 20px auto; }
+        .plan h3 { font-size: 1.7rem; margin: 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .plan ul { list-style: none; padding: 0; text-align: left; margin: 25px 0; font-size: 1rem; flex-grow: 1; }
+        .plan li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+        .plan li .icon { color: var(--primary-cta); margin-top: 3px; flex-shrink: 0; }
+        .plan-button { display: inline-flex; align-items: center; justify-content: center; padding: 15px; border-radius: 10px; font-weight: 600; margin-top: auto; font-size: 1.1rem; text-decoration: none; }
+        .basic-button { background-color: #F8F8F8; color: var(--dark-text); border: 1px solid #eee; }
+        .complete-button { background-color: var(--primary-cta); color: var(--white); font-size: 1.2rem; padding: 18px; }
+        .plan .price-info { font-weight: 700; font-size: 2.2rem; margin: 20px 0 15px 0; }
+        .plan .price-info span { text-decoration: line-through; font-size: 1.2rem; color: #999; }
+        .plan .payment-info { font-size: 0.9rem; color: #888; margin-top: 10px; }
+        
+        .guarantee { background-color: var(--soft-lilac); }
+        .guarantee p { max-width: 600px; margin: 0 auto; line-height: 1.7; font-weight: 500; font-size: 1.15rem; }
+        
+        .faq { background-color: var(--white); }
+        .faq-item { max-width: 750px; margin: 0 auto 15px auto; text-align: left; background-color: var(--bg-light); padding: 20px 25px; border-radius: 12px; border-left: 5px solid var(--primary-cta); }
+        .faq-item .question { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+        .faq-item .answer { font-size: 1rem; padding-top: 5px; padding-left: 34px; }
 
-        /* --- Seção 5: Oferta (CORRIGIDA) --- */
-        .offer {
-            background-color: var(--white);
-        }
-        .offer p.subtitle {
-            max-width: 600px;
-            margin: 10px auto 40px auto;
-            font-size: 1.1rem;
-        }
-        .offer-plans {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch; /* Alinha os cards pela altura */
-            gap: 40px;
-        }
-        .plan {
-            border: 2px solid var(--soft-lilac);
-            border-radius: 20px;
-            padding: 30px;
-            width: 350px; /* Cards de oferta maiores */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            background-color: var(--white);
-        }
-        .plan.complete {
-            border: 3px solid var(--primary-cta);
-            transform: scale(1.05); /* Escala levemente menor para não ficar exagerado */
-            box-shadow: 0 10px 30px rgba(255, 133, 162, 0.2);
-        }
-        /* CORREÇÃO DO BADGE */
-        .plan .badge {
-            background-color: var(--primary-cta);
-            color: var(--white);
-            padding: 8px 18px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin: 0 auto 20px auto; /* Centralizado e dentro do card */
-        }
-        .plan h3 {
-            font-size: 1.7rem; /* Título do plano maior */
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .plan ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin: 25px 0;
-            font-size: 1rem;
-            flex-grow: 1; /* Faz a lista crescer para alinhar os botões */
-        }
-        .plan li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .plan li .icon {
-             color: var(--primary-cta);
-             margin-top: 3px;
-             flex-shrink: 0;
-        }
-        .plan-button {
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: 600;
-            margin-top: auto;
-            font-size: 1.1rem;
-        }
-        .basic-button {
-            background-color: #F8F8F8;
-            color: var(--dark-text);
-            border: 1px solid #eee;
-        }
-        .complete-button {
-            background-color: var(--primary-cta);
-            color: var(--white);
-            font-size: 1.2rem;
-            padding: 18px;
-        }
-        .plan .price-info {
-            font-weight: 700;
-            font-size: 2.2rem; /* Preço maior */
-            margin: 20px 0 15px 0;
-        }
-        .plan .price-info span {
-            text-decoration: line-through;
-            font-size: 1.2rem;
-            color: #999;
-        }
-         .plan .payment-info {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 10px;
-        }
-        
-        /* --- Seção 6: Garantia --- */
-        .guarantee {
-            background-color: var(--soft-lilac);
-        }
-        .guarantee p {
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-            font-weight: 500;
-            font-size: 1.15rem;
-        }
-        
-        /* --- Seção 7: FAQ --- */
-        .faq {
-            background-color: var(--white);
-        }
-        .faq-item {
-            max-width: 700px;
-            margin: 0 auto 15px auto;
-            text-align: left;
-            background-color: var(--bg-light);
-            padding: 20px 25px;
-            border-radius: 12px;
-            border-left: 5px solid var(--primary-cta);
-        }
-        .faq-item .question {
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-         .faq-item .answer {
-            font-size: 1rem;
-            padding-top: 5px;
-            padding-left: 34px;
-         }
-
-        footer {
-            padding: 30px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
+        footer { padding: 30px; font-size: 0.9rem; color: #aaa; }
     </style>
 </head>
 <body>
 
     <!-- SVG Icons Definition -->
-    <svg width="0" height="0" style="position:absolute">
-      <defs>
+    <svg width="0" height="0" style="position:absolute"><defs>
         <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></symbol>
         <symbol id="icon-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></symbol>
         <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
@@ -405,8 +269,7 @@
         <symbol id="icon-medal-bronze" viewBox="0 0 24 24"><path d="M12 15l-3-2.25V9h6v3.75L12 15zM9 4L7 2H5l2 2v2H5v2h2v2H5v2h2v2l-2 2h2l2-2 2 2h2l-2-2v-2h2v-2h-2V8h2V6h-2V4l2-2h-2l-2 2z"/></symbol>
         <symbol id="icon-question" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></symbol>
         <symbol id="icon-sakura" viewBox="0 0 24 24"><path d="M12 2c-3.15 0-6.15 1.63-8.25 4.5C2.47 8.35 2.22 10.43 3.08 12c-1.4 1.4-1.4 3.6 0 5l-1 1 1 1c1.57 1.57 4.1 1.57 5.66 0l.34-.34.34.34c1.57 1.57 4.1 1.57 5.66 0l.34-.34.34.34c1.57 1.57 4.1 1.57 5.66 0l1-1-1-1c1.4-1.4 1.4-3.6 0-5 .86-1.57.6-3.65-1.17-5.5C18.15 3.63 15.15 2 12 2z"/></symbol>
-      </defs>
-    </svg>
+    </defs></svg>
 
     <!-- Seção 1 – Hero (Topo da Página) -->
     <section class="hero">
@@ -415,10 +278,7 @@
             <h1>Aprenda a fazer o doce japonês que viralizou no TikTok</h1>
             <h2>São 30 receitas de Mochi adaptadas para o Brasil – fáceis, rápidas e sem precisar de fogão!</h2>
             <div class="video-placeholder">[ vídeo curto de celular mostrando várias receitas passando na tela]</div>
-            <a href="#" class="cta-button">
-                <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
-                Quero minhas 30 receitas agora
-            </a>
+            <a href="#" class="cta-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero minhas 30 receitas agora</a>
             <p class="price-tag">Apenas hoje por R$10 reais</p>
             <ul class="checklist">
                 <li><svg class="icon"><use xlink:href="#icon-check"/></svg>Acesso vitalício</li>
@@ -431,10 +291,20 @@
     <!-- Seção 2 – O Efeito UAU -->
     <section class="wow-effect">
         <div class="container">
-            <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos">
-            <p>Você já deve ter visto esse doce fofo e colorido bombando no TikTok e no Instagram.</p>
-            <p>O Mochi é um doce japonês, macio, colorido e com recheios irresistíveis… mas quase ninguém no Brasil sabe preparar.</p>
-            <p><strong>Agora você pode aprender em casa com 30 receitas testadas e aprovadas.</strong><br>É simples, divertido e vai encantar sua família, amigos e clientes na primeira mordida.</p>
+            <div class="wow-content-wrapper">
+                <div class="wow-image">
+                    <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos e Fofos">
+                </div>
+                <div class="wow-text">
+                    <h3>O Doce Japonês que Virou Febre no Brasil</h3>
+                    <p>O Mochi é macio, colorido e tem recheios irresistíveis… mas quase ninguém sabe preparar. Agora você pode aprender em casa com receitas testadas e aprovadas.</p>
+                    <ul class="wow-highlights">
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Simples, divertido e sem usar fogão</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Encante sua família, amigos e clientes</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Perfeito para vender e lucrar muito</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -449,20 +319,14 @@
                 <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Ingredientes baratos encontrados em qualquer mercado</li>
                 <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Sugestões criativas para deixar seus Mochis instagramáveis</li>
             </ul>
-            <a href="#" class="cta-button">
-                 <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
-                 Quero acessar agora
-            </a>
+            <a href="#" class="cta-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero acessar agora</a>
         </div>
     </section>
 
     <!-- Seção 4 – Prova de Realidade -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">
-                Quem já fez, amou!
-                <svg class="icon" style="color: var(--primary-cta); width:1.3em; height:1.3em;"><use xlink:href="#icon-heart"/></svg>
-            </h2>
+            <h2 class="section-title">Quem já fez, amou!<svg class="icon" style="color: var(--primary-cta); width:1.3em; height:1.3em;"><use xlink:href="#icon-heart"/></svg></h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=1" alt="Foto de cliente"><div class="author">Mariana S.</div><div class="location">São Paulo, SP</div><p>"Eu não sabia nada de confeitaria e consegui fazer na primeira tentativa! As receitas são muito bem explicadas. Minha família amou o de Nutella."</p></div>
                 <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=5" alt="Foto de cliente"><div class="author">Lucas P.</div><div class="location">Belo Horizonte, MG</div><p>"Comprei por curiosidade e virei fã. É muito mais fácil do que parece. O fato de não precisar de fogão ajuda muito na correria do dia a dia."</p></div>
@@ -470,8 +334,6 @@
                 <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=12" alt="Foto de cliente"><div class="author">Beatriz Costa</div><div class="location">Rio de Janeiro, RJ</div><p>"Material incrível, super completo e fofo. As crianças adoraram me ajudar a preparar, virou uma atividade de família. Recomendo muito!"</p></div>
                 <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=25" alt="Foto de cliente"><div class="author">Thiago Alves</div><div class="location">Salvador, BA</div><p>"Sempre quis aprender a fazer mochi, mas as receitas da internet eram complicadas. Este ebook simplificou tudo! Valeu cada centavo."</p></div>
                 <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=31" alt="Foto de cliente"><div class="author">Juliana Ribeiro</div><div class="location">Fortaleza, CE</div><p>"Fiquei chocada com a variedade de recheios. O de Oreo é simplesmente perfeito! Já estou vendendo para as amigas e tirando um dinheirinho extra."</p></div>
-                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=45" alt="Foto de cliente"><div class="author">Carlos Eduardo</div><div class="location">Porto Alegre, RS</div><p>"Sou estudante e moro em apê pequeno. A praticidade de não usar fogão foi o que me conquistou. Faço um lanche rápido e delicioso."</p></div>
-                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=56" alt="Foto de cliente"><div class="author">Amanda Nunes</div><div class="location">Manaus, AM</div><p>"O acesso pelo e-mail e WhatsApp foi imediato, super prático. O material é lindo de ver e muito fácil de seguir. Parabéns pelo trabalho!"</p></div>
             </div>
         </div>
     </section>
@@ -481,12 +343,8 @@
         <div class="container">
             <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos" style="max-width: 280px; margin-bottom: 20px;">
             <h2 class="section-title">Escolha seu plano</h2>
-            <p class="subtitle">
-                <svg class="icon" style="color: #f39c12;"><use xlink:href="#icon-warning"/></svg>
-                <strong>Atenção:</strong> o desconto especial é válido somente para o plano completo e pode sair do ar a qualquer momento.
-            </p>
+            <p class="subtitle"><svg class="icon" style="color: #f39c12;"><use xlink:href="#icon-warning"/></svg><strong>Atenção:</strong> o desconto especial é válido somente para o plano completo e pode sair do ar a qualquer momento.</p>
             <div class="offer-plans">
-                <!-- Plano Básico -->
                 <div class="plan basic">
                     <h3><svg class="icon"><use xlink:href="#icon-medal-bronze"/></svg> Plano Básico</h3>
                     <div class="price-info">R$10,00</div>
@@ -495,13 +353,9 @@
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Receitas simples e fáceis de fazer</li>
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Acesso por e-mail e whatsapp</li>
                     </ul>
-                    <a href="#" class="plan-button basic-button">
-                        <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
-                        Quero o Básico por R$10
-                    </a>
+                    <a href="#" class="plan-button basic-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero o Básico por R$10</a>
                     <div class="payment-info">Pagamento único, acesso por 3 meses</div>
                 </div>
-                <!-- Plano Completo -->
                 <div class="plan complete">
                     <div class="badge"><svg class="icon" style="width:1.1em; height:1.1em;"><use xlink:href="#icon-fire"/></svg> Mais vendido & com desconto!</div>
                     <h3><svg class="icon"><use xlink:href="#icon-medal-gold"/></svg> Plano Completo</h3>
@@ -514,10 +368,7 @@
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Checklist de ingredientes baratos</li>
                         <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Acesso imediato + bônus</li>
                     </ul>
-                    <a href="#" class="plan-button complete-button">
-                        <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
-                        Quero o Completo por R$17
-                    </a>
+                    <a href="#" class="plan-button complete-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero o Completo por R$17</a>
                     <div class="payment-info">Pagamento único, acesso pra sempre</div>
                 </div>
             </div>
@@ -537,40 +388,26 @@
         <div class="container">
             <h2 class="section-title">Perguntas & Respostas</h2>
             <div class="faq-item">
-                <div class="question">
-                    <svg class="icon"><use xlink:href="#icon-question"/></svg>
-                    Preciso ter experiência na cozinha?
-                </div>
+                <div class="question"><svg class="icon"><use xlink:href="#icon-question"/></svg>Preciso ter experiência na cozinha?</div>
                 <div class="answer">Não! As receitas são simples e qualquer pessoa pode seguir.</div>
             </div>
             <div class="faq-item">
-                <div class="question">
-                    <svg class="icon"><use xlink:href="#icon-question"/></svg>
-                    Precisa de fogão?
-                </div>
+                <div class="question"><svg class="icon"><use xlink:href="#icon-question"/></svg>Precisa de fogão?</div>
                 <div class="answer">Não! Todas as receitas são adaptadas e podem ser feitas de forma prática.</div>
             </div>
             <div class="faq-item">
-                <div class="question">
-                     <svg class="icon"><use xlink:href="#icon-question"/></svg>
-                    Como vou receber o material?
-                </div>
+                <div class="question"><svg class="icon"><use xlink:href="#icon-question"/></svg>Como vou receber o material?</div>
                 <div class="answer">O acesso é 100% digital, você recebe por e-mail imediatamente após a compra.</div>
             </div>
             <div class="faq-item">
-                <div class="question">
-                     <svg class="icon"><use xlink:href="#icon-question"/></svg>
-                     Tem validade?
-                </div>
+                <div class="question"><svg class="icon"><use xlink:href="#icon-question"/></svg>Tem validade?</div>
                 <div class="answer">Não! O material é seu pra sempre.</div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            © 2025 Seu Nome/Sua Marca - Todos os direitos reservados.
-        </div>
+        <div class="container">© 2025 Seu Nome/Sua Marca - Todos os direitos reservados.</div>
     </footer>
 
 </body>

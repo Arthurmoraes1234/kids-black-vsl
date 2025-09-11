@@ -1,239 +1,520 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30 Receitas de Mochi - O Doce que Viralizou no TikTok</title>
-    
-    <!-- Importando a fonte Poppins -->
+    <title>Curso de Mochi - O Doce que Viralizou</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FFD6EC;
+            --purple: #E3D7FF;
+            --blue: #D7EFFF;
+            --green: #D7FFDC;
+            --dark-text: #5B4F79;
+            --primary-cta: #FF8DC7;
+            --secondary-cta: #F2F2F2;
+            --white: #FFFFFF;
+        }
 
-    <!-- Importando Ícones do Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF9FE;
+            color: var(--dark-text);
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+
+        /* --- Seção 1: Hero --- */
+        .hero {
+            background: linear-gradient(145deg, var(--pink), var(--purple));
+            padding-top: 20px;
+        }
+
+        .hero img.logo {
+            max-width: 180px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 15px auto 25px auto;
+        }
+
+        .video-placeholder {
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            margin: 20px auto;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--dark-text);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-cta);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(255, 141, 199, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .price-tag {
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            font-size: 0.9rem;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            color: var(--primary-cta);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* --- Seção 2: UAU --- */
+        .wow-effect {
+            background-color: var(--white);
+        }
+
+        .wow-effect img {
+            max-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .wow-effect p {
+            line-height: 1.6;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Seção 3: O Que Você Vai Receber --- */
+        .what-you-get {
+            background-color: var(--blue);
+        }
+
+        .what-you-get h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .what-you-get ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+        }
+
+        .what-you-get li {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* --- Seção 4: Provas --- */
+        .testimonials {
+            background-color: #FFF9FE;
+        }
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .testimonial-card {
+            background-color: var(--white);
+            border: 2px solid var(--pink);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+        }
+        .testimonial-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            float: left;
+            margin-right: 15px;
+        }
+        .testimonial-card .author {
+            font-weight: 700;
+            padding-top: 5px;
+        }
+        .testimonial-card .location {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        .testimonial-card p {
+            margin-top: 15px;
+            clear: both;
+            font-size: 0.95rem;
+        }
+
+        /* --- Seção 5: Oferta --- */
+        .offer {
+            background-color: var(--white);
+        }
+        .offer h2 {
+            font-size: 2rem;
+        }
+        .offer p {
+            max-width: 500px;
+            margin: 10px auto 30px auto;
+        }
+        .offer-plans {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .plan {
+            border: 2px solid var(--purple);
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .plan.complete {
+            border: 3px solid var(--primary-cta);
+            position: relative;
+            transform: scale(1.05);
+        }
+        .plan.complete .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-cta);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .plan h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin: 20px 0;
+        }
+        .plan li {
+            margin-bottom: 10px;
+        }
+        .plan li::before {
+            content: '✓';
+            color: var(--primary-cta);
+            margin-right: 8px;
+        }
+        .plan-button {
+            display: block;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: auto;
+        }
+        .basic-button {
+            background-color: var(--secondary-cta);
+            color: var(--dark-text);
+            border: 1px solid #ddd;
+        }
+        .complete-button {
+            background-color: var(--primary-cta);
+            color: var(--white);
+            font-size: 1.1rem;
+            padding: 15px;
+        }
+        .plan .price-info {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .plan .price-info span {
+            text-decoration: line-through;
+            font-size: 1rem;
+            color: #999;
+        }
+         .plan .payment-info {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* --- Seção 6: Garantia --- */
+        .guarantee {
+            background-color: var(--green);
+        }
+        .guarantee p {
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+        
+        /* --- Seção 7: FAQ --- */
+        .faq {
+            background-color: var(--white);
+        }
+        .faq h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .faq-item {
+            max-width: 600px;
+            margin: 0 auto 15px auto;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--purple);
+        }
+        .faq-item .question {
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #FEF9F8; color: #4A4A4A;">
+<body>
 
-    <!-- Container Principal -->
-    <div style="max-width: 900px; margin: 0 auto; padding: 20px; text-align: center;">
+    <!-- Seção 1 – Hero (Topo da Página) -->
+    <section class="hero">
+        <div class="container">
+            <img src="https://i.imgur.com/bRW7OUA.png" alt="Logo Confeitaria Fofa" class="logo">
+            <h1>Aprenda a fazer o doce japonês que viralizou no TikTok</h1>
+            <h2>São 30 receitas de Mochi adaptadas para o Brasil – fáceis, rápidas e sem precisar de fogão!</h2>
+            <div class="video-placeholder">[ vídeo curto de celular mostrando várias receitas passando na tela]</div>
+            <a href="#" class="cta-button">➡️ Quero minhas 30 receitas agora</a>
+            <p class="price-tag">Apenas hoje por R$10 reais</p>
+            <ul class="checklist">
+                <li>Acesso vitalício</li>
+                <li>30 dias de garantia</li>
+                <li>Pagamento único</li>
+            </ul>
+        </div>
+    </section>
 
-        <!-- ============================ -->
-        <!-- Seção 1 – Hero (Topo)        -->
-        <!-- ============================ -->
-        <section id="hero" style="padding: 30px 10px;">
-            <h1 style="font-size: 42px; line-height: 1.3; color: #8A6AAA; font-weight: 800; margin-bottom: 15px;">
-                <i class="fa-solid fa-wand-magic-sparkles" style="color: #FFB6C1;"></i> Aprenda a fazer o doce japonês que viralizou no TikTok 🍡
-            </h1>
-            <h2 style="font-size: 20px; font-weight: 400; color: #666; max-width: 600px; margin: 0 auto 30px;">
-                São 30 receitas de Mochi adaptadas para o Brasil – fáceis, rápidas e sem precisar de fogão!
-            </h2>
+    <!-- Seção 2 – O Efeito UAU -->
+    <section class="wow-effect">
+        <div class="container">
+            <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos">
+            <p>Você já deve ter visto esse doce fofo e colorido bombando no TikTok e no Instagram.</p>
+            <p>O Mochi é um doce japonês, macio, colorido e com recheios irresistíveis… mas quase ninguém no Brasil sabe preparar.</p>
+            <p><strong>Agora você pode aprender em casa com 30 receitas testadas e aprovadas.</strong><br>É simples, divertido e vai encantar sua família, amigos e clientes na primeira mordida.</p>
+        </div>
+    </section>
 
-            <!-- Placeholder para Mockup e Vídeo -->
-            <div style="background-color: #fff; border: 1px solid #eee; border-radius: 20px; padding: 15px; margin: 0 auto 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
-                <p style="color: #aaa; padding: 80px 20px;">[Mockup bonito do ebook + vídeo curto de celular mostrando várias receitas passando na tela]</p>
-            </div>
-            
-            <p style="font-size: 18px; font-weight: 600; color: #E57373;">Apenas hoje por R$10 reais</p>
-            
-            <a href="#oferta" style="display: inline-block; background: linear-gradient(45deg, #FF9A8B, #FF6A88); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 20px; box-shadow: 0 6px 15px rgba(255, 106, 136, 0.4); transition: transform 0.2s;">
-                <i class="fa-solid fa-arrow-right"></i> Quero minhas 30 receitas agora
-            </a>
-        </section>
+    <!-- Seção 3 – O Que Você Vai Receber -->
+    <section class="what-you-get">
+        <div class="container">
+            <h2>Veja o que você vai aprender</h2>
+            <ul>
+                <li>✅ 30 receitas de Mochi fofos e coloridos</li>
+                <li>✅ Versões recheadas (Nutella, Oreo, morango, e muito mais)</li>
+                <li>✅ Receitas sem fogão – rápidas e práticas</li>
+                <li>✅ Ingredientes baratos encontrados em qualquer mercado</li>
+                <li>✅ Sugestões criativas para deixar seus Mochis instagramáveis ✨</li>
+            </ul>
+            <a href="#" class="cta-button">➡️ Quero acessar agora</a>
+        </div>
+    </section>
 
-        <!-- Divisor fofo -->
-        <div style="height: 1px; background: linear-gradient(to right, #FEF9F8, #FFDFE6, #FEF9F8); margin: 60px 0;"></div>
-
-        <!-- ============================ -->
-        <!-- Seção 2 – O Efeito UAU      -->
-        <!-- ============================ -->
-        <section id="efeito-uau" style="padding: 30px 10px;">
-            <h2 style="font-size: 32px; color: #8A6AAA; font-weight: 700;">O Doce que Conquistou a Internet</h2>
-            <p style="font-size: 17px; line-height: 1.8; max-width: 700px; margin: 15px auto 30px;">
-                Você já deve ter visto esse doce fofo e colorido bombando no TikTok e no Instagram. O Mochi é um doce japonês, macio, colorido e com recheios irresistíveis… mas quase ninguém no Brasil sabe preparar.
-                <br><br>
-                Agora você pode aprender em casa com 30 receitas testadas e aprovadas. É simples, divertido e vai encantar sua família, amigos e clientes na primeira mordida.
-            </p>
-            <!-- Placeholder para vídeo satisfatório -->
-            <div style="background-color: #E6E6FA; border-radius: 20px; padding: 15px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 500px;">
-                <p style="color: #aaa; padding: 100px 20px;">[Foto ou vídeo satisfatório de Mochis sendo preparados]</p>
-            </div>
-        </section>
-
-        <!-- Divisor fofo -->
-        <div style="height: 1px; background: linear-gradient(to right, #FEF9F8, #FFDFE6, #FEF9F8); margin: 60px 0;"></div>
-
-        <!-- ============================ -->
-        <!-- Seção 3 – O que você vai receber -->
-        <!-- ============================ -->
-        <section id="conteudo" style="background-color: #FFF0F5; padding: 50px 20px; border-radius: 20px; margin: 30px 0;">
-             <h2 style="font-size: 32px; color: #8A6AAA; font-weight: 700; margin-top: 0;">Veja o que você vai aprender</h2>
-             <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px; margin-top: 30px;">
-                <div style="flex: 1; min-width: 280px; text-align: left; font-size: 17px; line-height: 2;">
-                    <p><i class="fa-solid fa-check-circle" style="color: #FF6A88; margin-right: 10px;"></i> <strong>30 receitas</strong> de Mochi fofos e coloridos</p>
-                    <p><i class="fa-solid fa-check-circle" style="color: #FF6A88; margin-right: 10px;"></i> Versões recheadas (Nutella, Oreo, morango, e mais)</p>
-                    <p><i class="fa-solid fa-check-circle" style="color: #FF6A88; margin-right: 10px;"></i> Receitas <strong>sem fogão</strong> – rápidas e práticas</p>
-                    <p><i class="fa-solid fa-check-circle" style="color: #FF6A88; margin-right: 10px;"></i> Ingredientes <strong>baratos</strong> encontrados em qualquer mercado</p>
-                    <p><i class="fa-solid fa-check-circle" style="color: #FF6A88; margin-right: 10px;"></i> Sugestões para deixar seus Mochis instagramáveis ✨</p>
+    <!-- Seção 4 – Prova de Realidade -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Quem já fez, amou! 💕</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=1" alt="Foto de cliente">
+                    <div class="author">Mariana S.</div>
+                    <div class="location">São Paulo, SP</div>
+                    <p>"Eu não sabia nada de confeitaria e consegui fazer na primeira tentativa! As receitas são muito bem explicadas. Minha família amou o de Nutella."</p>
                 </div>
-                <div style="flex: 1; min-width: 250px; max-width: 300px;">
-                    <div style="background-color: #fff; border: 1px solid #eee; border-radius: 20px; padding: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);"><p style="color: #aaa; padding: 60px 20px;">[Mockup estiloso do produto]</p></div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=5" alt="Foto de cliente">
+                    <div class="author">Lucas P.</div>
+                    <div class="location">Belo Horizonte, MG</div>
+                    <p>"Comprei por curiosidade e virei fã. É muito mais fácil do que parece. O fato de não precisar de fogão ajuda muito na correria do dia a dia."</p>
                 </div>
-            </div>
-            <a href="#oferta" style="display: inline-block; background: linear-gradient(45deg, #FF9A8B, #FF6A88); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 20px; box-shadow: 0 6px 15px rgba(255, 106, 136, 0.4); margin-top: 40px;">
-                <i class="fa-solid fa-arrow-right"></i> Quero acessar agora
-            </a>
-        </section>
-        
-        <!-- ============================ -->
-        <!-- Seção 4 – Depoimentos        -->
-        <!-- ============================ -->
-        <section id="depoimentos" style="padding: 40px 10px;">
-            <h2 style="font-size: 32px; color: #8A6AAA; font-weight: 700; margin-bottom: 30px;">Quem já fez, amou!</h2>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-                <!-- Depoimento 1 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“Amei! Super fácil, fiz no dormitório da faculdade e todo mundo pirou. As receitas sem fogão são geniais!”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Bruna C.</p>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=8" alt="Foto de cliente">
+                    <div class="author">Fernanda L.</div>
+                    <div class="location">Curitiba, PR</div>
+                    <p>"Adicionei os mochIs no cardápio da minha doceria e foi um sucesso instantâneo! As dicas para deixar eles 'instagramáveis' fizeram toda a diferença."</p>
                 </div>
-                <!-- Depoimento 2 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“Meus filhos amaram ajudar a preparar! Virou nossa nova atividade de fim de semana. O de morango é o preferido.”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Mariana S.</p>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=12" alt="Foto de cliente">
+                    <div class="author">Beatriz Costa</div>
+                    <div class="location">Rio de Janeiro, RJ</div>
+                    <p>"Material incrível, super completo e fofo. As crianças adoraram me ajudar a preparar, virou uma atividade de família. Recomendo muito!"</p>
                 </div>
-                <!-- Depoimento 3 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“Adicionei no meu cardápio de doces e foi um sucesso. O ebook se pagou no primeiro dia de vendas.”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Ricardo L.</p>
+                 <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=25" alt="Foto de cliente">
+                    <div class="author">Thiago Alves</div>
+                    <div class="location">Salvador, BA</div>
+                    <p>"Sempre quis aprender a fazer mochi, mas as receitas da internet eram complicadas. Este ebook simplificou tudo! Valeu cada centavo."</p>
                 </div>
-                <!-- Depoimento 4 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“Eu queimo até água, mas consegui fazer Mochis perfeitos na primeira tentativa. As receitas são à prova de erros.”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Felipe G.</p>
+                 <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=31" alt="Foto de cliente">
+                    <div class="author">Juliana Ribeiro</div>
+                    <div class="location">Fortaleza, CE</div>
+                    <p>"Fiquei chocada com a variedade de recheios. O de Oreo é simplesmente perfeito! Já estou vendendo para as amigas e tirando um dinheirinho extra."</p>
                 </div>
-                 <!-- Depoimento 5 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“As sugestões de recheio são incríveis! A de Oreo é minha favorita. Qualidade de confeitaria em casa.”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Júlia M.</p>
+                 <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=45" alt="Foto de cliente">
+                    <div class="author">Carlos Eduardo</div>
+                    <div class="location">Porto Alegre, RS</div>
+                    <p>"Sou estudante e moro em apê pequeno. A praticidade de não usar fogão foi o que me conquistou. Faço um lanche rápido e delicioso."</p>
                 </div>
-                <!-- Depoimento 6 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“Estava procurando uma sobremesa diferente e saudável. Amei as versões fitness, super levinhas e saborosas!”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Patrícia A.</p>
-                </div>
-                <!-- Depoimento 7 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“Fiz uma caixinha de Mochis para presentear uma amiga. Ela amou o presente criativo e delicioso! Super original.”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Lucas P.</p>
-                </div>
-                <!-- Depoimento 8 -->
-                <div style="background-color: white; border-radius: 15px; padding: 20px; width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #eee; margin: 0 auto 10px; border: 3px solid #FFDFE6;"><p style="line-height: 70px; color: #ccc;">Foto</p></div>
-                    <p style="font-size: 14px; font-style: italic; margin: 0 0 10px 0;">“Comprei pelo preço baixo sem esperar muito, mas a qualidade do material me surpreendeu. Vale cada centavo e mais!”</p>
-                    <p style="font-weight: 600; color: #E57373;">- Vanessa T.</p>
+                 <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=56" alt="Foto de cliente">
+                    <div class="author">Amanda Nunes</div>
+                    <div class="location">Manaus, AM</div>
+                    <p>"O acesso pelo e-mail e WhatsApp foi imediato, super prático. O material é lindo de ver e muito fácil de seguir. Parabéns pelo trabalho!"</p>
                 </div>
             </div>
-        </section>
-        
-        <!-- ============================ -->
-        <!-- Seção 5 – Oferta Especial    -->
-        <!-- ============================ -->
-        <section id="oferta" style="padding: 40px 10px;">
-            <h2 style="font-size: 32px; color: #8A6AAA; font-weight: 700;">Escolha seu plano</h2>
-            <p style="font-size: 16px; max-width: 600px; margin: 15px auto 30px;">
-                <strong>Mas atenção ⚠️:</strong> o desconto especial é válido somente para o plano completo e pode sair do ar a qualquer momento.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 30px;">
+        </div>
+    </section>
 
+    <!-- Seção 5 – Oferta Especial -->
+    <section class="offer">
+        <div class="container">
+            <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos" style="max-width: 250px; margin-bottom: 20px;">
+            <h2>Escolha seu plano</h2>
+            <p>Mas atenção ⚠️: o desconto especial é válido somente para o plano completo e pode sair do ar a qualquer momento.</p>
+            <div class="offer-plans">
                 <!-- Plano Básico -->
-                <div style="flex: 1; min-width: 280px; max-width: 350px; background-color: #F8F8F8; border: 1px solid #ddd; border-radius: 20px; padding: 30px; text-align: left;">
-                    <h3 style="font-size: 24px; color: #8A6AAA; margin-top: 0;">🥉 Plano Básico – R$10,00</h3>
-                    <p style="line-height: 1.6;">Ebook com 30 receitas de Mochi adaptadas para o Brasil</p>
-                    <p style="line-height: 1.6;">Receitas simples e fáceis de fazer em casa</p>
-                    <p style="line-height: 1.6;">Acesso imediato por e-mail e whatsapp</p>
-                    <a href="SEU_LINK_CHECKOUT_BASICO" style="display: block; text-align: center; background-color: #D1C4E9; color: #4A4A4A; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 20px;">
-                        <i class="fa-solid fa-arrow-right"></i> Quero o Básico por R$10
-                    </a>
-                    <p style="font-size: 12px; text-align: center; color: #888; margin-top: 10px;">Pagamento único, acesso de 3 meses</p>
+                <div class="plan basic">
+                    <h3>🥉 Plano Básico</h3>
+                    <div class="price-info">R$10,00</div>
+                    <ul>
+                        <li>Ebook com 30 receitas de Mochi adaptadas para o Brasil</li>
+                        <li>Receitas simples e fáceis de fazer em casa</li>
+                        <li>Acesso imediato por e-mail e whatsapp</li>
+                    </ul>
+                    <a href="#" class="plan-button basic-button">➡️ Quero o Básico por R$10</a>
+                    <div class="payment-info">Pagamento único, acesso por 3 meses</div>
                 </div>
-
                 <!-- Plano Completo -->
-                <div style="flex: 1; min-width: 280px; max-width: 350px; background-color: white; border: 3px solid #FF9A8B; border-radius: 20px; padding: 30px; text-align: left; box-shadow: 0 10px 30px rgba(255, 106, 136, 0.2);">
-                    <p style="background-color: #FF6A88; color: white; display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-top: -10px;"><i class="fa-solid fa-fire"></i> Mais vendido & com desconto exclusivo!</p>
-                    <h3 style="font-size: 24px; color: #8A6AAA; margin-top: 15px;">🥇 Plano Completo</h3>
-                    <p style="font-size: 28px; font-weight: 800; color: #4CAF50;"><span style="text-decoration: line-through; color: #999; font-size: 18px; font-weight: 400;">R$47,00</span> → HOJE apenas R$17,00</p>
-                    <p style="line-height: 1.6;"><strong>Ebook com 50 receitas</strong> de Mochi adaptadas</p>
-                    <p style="line-height: 1.6;">Guia de recheios criativos (Nutella, Oreo, Morango, etc)</p>
-                    <p style="line-height: 1.6;">Mochis coloridos e especiais (efeito Instagram)</p>
-                    <p style="line-height: 1.6;">Versões fitness & geladas para surpreender</p>
-                    <p style="line-height: 1.6;">Checklist de ingredientes baratos</p>
-                    <p style="line-height: 1.6;">Acesso imediato + <strong>bônus exclusivos</strong></p>
-                    <a href="SEU_LINK_CHECKOUT_COMPLETO" style="display: block; text-align: center; background: linear-gradient(45deg, #FF9A8B, #FF6A88); color: white; padding: 20px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 18px; margin-top: 20px;">
-                        <i class="fa-solid fa-arrow-right"></i> Quero o Completo por R$17
-                    </a>
-                    <p style="font-size: 12px; text-align: center; color: #888; margin-top: 10px;">Pagamento único, acesso pra sempre</p>
+                <div class="plan complete">
+                    <div class="badge">🔥 Mais vendido & com desconto!</div>
+                    <h3>🥇 Plano Completo</h3>
+                    <div class="price-info"><span>R$47,00</span> → HOJE R$17,00</div>
+                    <ul>
+                        <li>Ebook com 50 receitas de Mochi adaptadas para o Brasil</li>
+                        <li>Guia de recheios criativos (Nutella, Oreo, Morango, etc)</li>
+                        <li>Mochis coloridos e especiais (efeito Instagram)</li>
+                        <li>Versões fitness & geladas para surpreender</li>
+                        <li>Checklist de ingredientes baratos</li>
+                        <li>Acesso imediato + bônus exclusivos</li>
+                    </ul>
+                    <a href="#" class="plan-button complete-button">➡️ Quero o Completo por R$17</a>
+                    <div class="payment-info">Pagamento único, acesso pra sempre</div>
                 </div>
             </div>
-        </section>
-        
-        <!-- ============================ -->
-        <!-- Seção 6 – Garantia           -->
-        <!-- ============================ -->
-        <section id="garantia" style="display: flex; align-items: center; justify-content: center; background-color: #E3F2FD; padding: 30px; border-radius: 20px; margin: 50px 0; flex-wrap: wrap; gap: 20px;">
-            <div><i class="fa-solid fa-shield-heart" style="font-size: 70px; color: #64B5F6;"></i></div>
-            <div style="text-align: left; max-width: 500px;">
-                <h3 style="margin-top: 0; color: #1E88E5; font-size: 22px;">Sua Compra 100% Segura</h3>
-                <p style="margin-bottom: 0; line-height: 1.6; font-size: 16px;">
-                    Se por qualquer motivo você não gostar do material, você tem até <strong>30 dias</strong> para pedir seu dinheiro de volta. É risco zero pra você.
-                </p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ============================ -->
-        <!-- Seção 7 – FAQ                -->
-        <!-- ============================ -->
-        <section id="faq" style="text-align: left; max-width: 700px; margin: 0 auto; padding: 20px 0;">
-            <h2 style="text-align: center; font-size: 32px; color: #8A6AAA; margin-bottom: 30px;">Perguntas Frequentes</h2>
-            
-            <div style="margin-bottom: 15px;">
-                <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #333;"><i class="fa-solid fa-question-circle" style="color: #FFB6C1; margin-right: 8px;"></i>Preciso ter experiência na cozinha?</h4>
-                <p style="margin: 0; line-height: 1.6; padding-left: 30px;">
-                    <i class="fa-solid fa-arrow-right" style="color: #ccc; margin-right: 8px;"></i>Não! As receitas são simples e qualquer pessoa pode seguir.
-                </p>
-            </div>
-            <div style="border-top: 1px solid #eee; margin: 15px 0; padding-top: 15px;">
-                <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #333;"><i class="fa-solid fa-question-circle" style="color: #FFB6C1; margin-right: 8px;"></i>Precisa de fogão?</h4>
-                <p style="margin: 0; line-height: 1.6; padding-left: 30px;">
-                    <i class="fa-solid fa-arrow-right" style="color: #ccc; margin-right: 8px;"></i>Não! Todas as receitas são adaptadas e podem ser feitas de forma prática.
-                </p>
-            </div>
-            <div style="border-top: 1px solid #eee; margin: 15px 0; padding-top: 15px;">
-                <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #333;"><i class="fa-solid fa-question-circle" style="color: #FFB6C1; margin-right: 8px;"></i>Como vou receber o material?</h4>
-                <p style="margin: 0; line-height: 1.6; padding-left: 30px;">
-                    <i class="fa-solid fa-arrow-right" style="color: #ccc; margin-right: 8px;"></i>O acesso é 100% digital, você recebe por e-mail imediatamente após a compra.
-                </p>
-            </div>
-            <div style="border-top: 1px solid #eee; margin: 15px 0; padding-top: 15px;">
-                <h4 style="margin: 0 0 5px 0; font-size: 18px; color: #333;"><i class="fa-solid fa-question-circle" style="color: #FFB6C1; margin-right: 8px;"></i>Tem validade?</h4>
-                <p style="margin: 0; line-height: 1.6; padding-left: 30px;">
-                    <i class="fa-solid fa-arrow-right" style="color: #ccc; margin-right: 8px;"></i>O acesso ao plano completo é seu pra sempre! O plano básico tem validade de 3 meses.
-                </p>
-            </div>
-        </section>
+    <!-- Seção 6 – Garantia Simples -->
+    <section class="guarantee">
+        <div class="container">
+             <h2>Sua Satisfação ou seu Dinheiro de Volta!</h2>
+            <p>Se por qualquer motivo você não gostar do material, você tem até 30 dias para pedir seu dinheiro de volta. É risco zero pra você.</p>
+        </div>
+    </section>
 
-        <!-- Rodapé -->
-        <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p style="font-size: 12px; color: #999;">Todos os direitos reservados © 2024</p>
-        </footer>
+    <!-- Seção 7 – FAQ (dúvidas comuns) -->
+    <section class="faq">
+        <div class="container">
+            <h2>Perguntas & Respostas</h2>
+            <div class="faq-item">
+                <div class="question">❓ Preciso ter experiência na cozinha?</div>
+                <div class="answer">👉 Não! As receitas são simples e qualquer pessoa pode seguir.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">❓ Precisa de fogão?</div>
+                <div class="answer">👉 Não! Todas as receitas são adaptadas e podem ser feitas de forma prática.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">❓ Como vou receber o material?</div>
+                <div class="answer">👉 O acesso é 100% digital, você recebe por e-mail imediatamente após a compra.</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">❓ Tem validade?</div>
+                <div class="answer">👉 O acesso do plano completo é seu pra sempre!</div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <footer>
+        <div class="container">
+            © 2025 Seu Nome/Sua Marca - Todos os direitos reservados.
+        </div>
+    </footer>
 
 </body>
 </html>

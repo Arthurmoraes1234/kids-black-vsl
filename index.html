@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-light: #FFF9FB; /* Fundo principal super claro */
-            --soft-pink: #FDECF2; /* Rosa pastel para seções */
-            --soft-lilac: #F3E8FF; /* Lilás bem suave para detalhes */
-            --primary-cta: #FF85A2; /* Rosa vibrante para botões principais */
-            --dark-text: #6D5B67; /* Tom de ameixa escuro para texto */
+            --bg-light: #FFF9FB;
+            --soft-pink: #FDECF2;
+            --soft-lilac: #F3E8FF;
+            --primary-cta: #FF85A2;
+            --dark-text: #6D5B67;
             --white: #FFFFFF;
         }
 
@@ -26,37 +26,51 @@
         }
 
         .container {
-            max-width: 850px; /* Aumentei a largura para preencher mais */
+            max-width: 850px;
             margin: 0 auto;
             padding: 20px;
         }
 
         section {
-            padding: 60px 20px; /* Mais preenchimento interno */
-            margin-bottom: 15px; /* Menos espaço entre seções */
+            padding: 60px 20px;
+            margin-bottom: 15px;
             border-radius: 25px;
+        }
+        
+        /* Ícones SVG Personalizados */
+        .icon {
+            width: 1.2em;
+            height: 1.2em;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+        
+        .cta-button .icon, .plan-button .icon {
+            margin-right: 8px;
+            width: 1.4em;
+            height: 1.4em;
         }
 
         /* --- Seção 1: Hero --- */
         .hero {
             background: linear-gradient(145deg, var(--soft-pink), var(--soft-lilac));
-            padding-top: 30px;
+            padding: 25px 20px 60px 20px; /* Padding superior bem menor */
         }
 
         .hero img.logo {
-            max-width: 150px; /* Logo menor */
-            margin-bottom: 15px; /* Mais perto do título */
+            max-width: 120px; /* Logo ainda menor */
+            margin-bottom: 5px; /* Muito mais perto do título */
         }
 
         .hero h1 {
-            font-size: 2.8rem; /* Título maior */
+            font-size: 2.8rem;
             font-weight: 700;
             line-height: 1.2;
             margin: 0;
         }
 
         .hero h2 {
-            font-size: 1.3rem; /* Subtítulo maior */
+            font-size: 1.3rem;
             font-weight: 400;
             max-width: 650px;
             margin: 15px auto 30px auto;
@@ -78,17 +92,22 @@
             font-size: 1.1rem;
         }
 
+        .cta-button, .plan-button {
+            display: inline-flex; /* Alterado para alinhar ícone e texto */
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out;
+        }
+        
         .cta-button {
-            display: inline-block;
             background-color: var(--primary-cta);
             color: var(--white);
-            padding: 18px 45px; /* Botão maior */
+            padding: 18px 45px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 700;
-            font-size: 1.3rem; /* Fonte maior */
+            font-size: 1.3rem;
             box-shadow: 0 5px 20px rgba(255, 133, 162, 0.5);
-            transition: transform 0.2s ease-in-out;
         }
 
         .cta-button:hover {
@@ -110,12 +129,15 @@
             margin-top: 30px;
             font-size: 1rem;
         }
-
-        .checklist li::before {
-            content: '✓';
+        
+        .checklist li {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checklist .icon {
             color: var(--primary-cta);
-            font-weight: bold;
-            margin-right: 8px;
         }
 
         /* --- Seção 2: UAU --- */
@@ -124,7 +146,7 @@
         }
 
         .wow-effect img {
-            max-width: 280px; /* Imagem um pouco maior */
+            max-width: 280px;
             margin-bottom: 25px;
         }
 
@@ -141,10 +163,13 @@
         .what-you-get {
             background-color: var(--soft-pink);
         }
-
-        .what-you-get h2 {
+        
+        .section-title {
             font-size: 2.2rem;
             margin-bottom: 35px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .what-you-get ul {
@@ -162,17 +187,22 @@
             margin-bottom: 12px;
             font-weight: 600;
             font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .what-you-get .icon {
+            color: var(--primary-cta);
+            flex-shrink: 0; /* Impede que o ícone esprema */
         }
 
         /* --- Seção 4: Provas --- */
         .testimonials {
-            background-color: var(--bg-light); /* Fundo sutil */
+            background-color: var(--bg-light);
             padding-top: 20px;
         }
-        .testimonials h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-        }
+        
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -210,12 +240,9 @@
             line-height: 1.6;
         }
 
-        /* --- Seção 5: Oferta --- */
+        /* --- Seção 5: Oferta (REORGANIZADA) --- */
         .offer {
             background-color: var(--white);
-        }
-        .offer h2 {
-            font-size: 2.2rem;
         }
         .offer p {
             max-width: 550px;
@@ -227,7 +254,7 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 40px; /* Espaçamento aumentado para evitar colisão */
         }
         .plan {
             border: 2px solid var(--soft-lilac);
@@ -238,16 +265,17 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s ease;
+            background-color: var(--white);
         }
         .plan.complete {
             border: 3px solid var(--primary-cta);
             position: relative;
-            transform: scale(1.08); /* Mais destaque */
+            transform: scale(1.08);
             box-shadow: 0 10px 30px rgba(255, 133, 162, 0.2);
         }
         .plan.complete .badge {
             position: absolute;
-            top: -18px;
+            top: -20px; /* Posição ajustada */
             left: 50%;
             transform: translateX(-50%);
             background-color: var(--primary-cta);
@@ -256,28 +284,37 @@
             border-radius: 20px;
             font-size: 1rem;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         .plan h3 {
             font-size: 1.6rem;
-            margin-top: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         .plan ul {
             list-style: none;
             padding: 0;
             text-align: left;
-            margin: 20px 0;
+            margin: 25px 0;
             font-size: 1rem;
         }
         .plan li {
             margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
-        .plan li::before {
-            content: '🌸'; /* Ícone mais fofo */
-            margin-right: 8px;
+        .plan li .icon {
+             color: var(--primary-cta);
+             margin-top: 3px;
+             flex-shrink: 0;
         }
         .plan-button {
-            display: block;
-            text-decoration: none;
             padding: 15px;
             border-radius: 10px;
             font-weight: 600;
@@ -298,7 +335,7 @@
         .plan .price-info {
             font-weight: 700;
             font-size: 2rem;
-            margin-bottom: 15px;
+            margin: 20px 0 15px 0;
         }
         .plan .price-info span {
             text-decoration: line-through;
@@ -310,13 +347,10 @@
             color: #888;
             margin-top: 10px;
         }
-
+        
         /* --- Seção 6: Garantia --- */
         .guarantee {
             background-color: var(--soft-lilac);
-        }
-         .guarantee h2 {
-            font-size: 2.2rem;
         }
         .guarantee p {
             max-width: 550px;
@@ -330,10 +364,6 @@
         .faq {
             background-color: var(--white);
         }
-        .faq h2 {
-            font-size: 2.2rem;
-            margin-bottom: 35px;
-        }
         .faq-item {
             max-width: 650px;
             margin: 0 auto 15px auto;
@@ -346,21 +376,39 @@
         .faq-item .question {
             font-weight: 700;
             font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
          .faq-item .answer {
             font-size: 1rem;
             padding-top: 5px;
-        }
+            padding-left: 34px; /* Alinhado com a pergunta */
+         }
 
         footer {
             padding: 30px;
             font-size: 0.9rem;
             color: #aaa;
         }
-        
     </style>
 </head>
 <body>
+
+    <!-- SVG Icons Definition -->
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></symbol>
+        <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+        <symbol id="icon-warning" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2V7h2v7z"/></symbol>
+        <symbol id="icon-fire" viewBox="0 0 24 24"><path d="M13.04 1.21C11.13 2.93 10 5.44 10 8.27c0 2.22 1.21 4.31 2.5 5.59.45.45.83.95.83 1.64s-.38 1.19-.83 1.64c-1.29 1.28-2.5 3.37-2.5 5.59 0 .28.22.5.5.5s.5-.22.5-.5c0-1.76 1.04-3.56 2.17-4.69.93-.93 2.17-1.48 2.17-2.54s-1.24-1.61-2.17-2.54C14.04 11.83 13 9.74 13 7.5c0-2.34.8-4.35 2.1-5.79.24-.26-.11-.69-.46-.5z"/></symbol>
+        <symbol id="icon-medal-gold" viewBox="0 0 24 24"><path d="M12 15l-3-2.25V9h6v3.75L12 15zM9 4L7 2H5l2 2v2H5v2h2v2H5v2h2v2l-2 2h2l2-2 2 2h2l-2-2v-2h2v-2h-2V8h2V6h-2V4l2-2h-2l-2 2z"/></symbol>
+        <symbol id="icon-medal-bronze" viewBox="0 0 24 24"><path d="M12 15l-3-2.25V9h6v3.75L12 15zM9 4L7 2H5l2 2v2H5v2h2v2H5v2h2v2l-2 2h2l2-2 2 2h2l-2-2v-2h2v-2h-2V8h2V6h-2V4l2-2h-2l-2 2z"/></symbol>
+        <symbol id="icon-question" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></symbol>
+        <symbol id="icon-sakura" viewBox="0 0 24 24"><path d="M12 2c-3.15 0-6.15 1.63-8.25 4.5C2.47 8.35 2.22 10.43 3.08 12c-1.4 1.4-1.4 3.6 0 5l-1 1 1 1c1.57 1.57 4.1 1.57 5.66 0l.34-.34.34.34c1.57 1.57 4.1 1.57 5.66 0l.34-.34.34.34c1.57 1.57 4.1 1.57 5.66 0l1-1-1-1c1.4-1.4 1.4-3.6 0-5 .86-1.57.6-3.65-1.17-5.5C18.15 3.63 15.15 2 12 2z"/></symbol>
+      </defs>
+    </svg>
 
     <!-- Seção 1 – Hero (Topo da Página) -->
     <section class="hero">
@@ -369,12 +417,15 @@
             <h1>Aprenda a fazer o doce japonês que viralizou no TikTok</h1>
             <h2>São 30 receitas de Mochi adaptadas para o Brasil – fáceis, rápidas e sem precisar de fogão!</h2>
             <div class="video-placeholder">[ vídeo curto de celular mostrando várias receitas passando na tela]</div>
-            <a href="#" class="cta-button">➡️ Quero minhas 30 receitas agora</a>
+            <a href="#" class="cta-button">
+                <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
+                Quero minhas 30 receitas agora
+            </a>
             <p class="price-tag">Apenas hoje por R$10 reais</p>
             <ul class="checklist">
-                <li>Acesso vitalício</li>
-                <li>30 dias de garantia</li>
-                <li>Pagamento único</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg>Acesso vitalício</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg>30 dias de garantia</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg>Pagamento único</li>
             </ul>
         </div>
     </section>
@@ -392,71 +443,37 @@
     <!-- Seção 3 – O Que Você Vai Receber -->
     <section class="what-you-get">
         <div class="container">
-            <h2>Veja o que você vai aprender</h2>
+            <h2 class="section-title">Veja o que você vai aprender</h2>
             <ul>
-                <li>✅ 30 receitas de Mochi fofos e coloridos</li>
-                <li>✅ Versões recheadas (Nutella, Oreo, morango, e muito mais)</li>
-                <li>✅ Receitas sem fogão – rápidas e práticas</li>
-                <li>✅ Ingredientes baratos encontrados em qualquer mercado</li>
-                <li>✅ Sugestões criativas para deixar seus Mochis instagramáveis ✨</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> 30 receitas de Mochi fofos e coloridos</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Versões recheadas (Nutella, Oreo, morango, e muito mais)</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Receitas sem fogão – rápidas e práticas</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Ingredientes baratos encontrados em qualquer mercado</li>
+                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Sugestões criativas para deixar seus Mochis instagramáveis</li>
             </ul>
-            <a href="#" class="cta-button">➡️ Quero acessar agora</a>
+            <a href="#" class="cta-button">
+                 <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
+                 Quero acessar agora
+            </a>
         </div>
     </section>
 
     <!-- Seção 4 – Prova de Realidade -->
     <section class="testimonials">
         <div class="container">
-            <h2>Quem já fez, amou! 💕</h2>
+            <h2 class="section-title">
+                Quem já fez, amou!
+                <svg class="icon" style="color: var(--primary-cta); width:1.3em; height:1.3em;"><use xlink:href="#icon-heart"/></svg>
+            </h2>
             <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=1" alt="Foto de cliente">
-                    <div class="author">Mariana S.</div>
-                    <div class="location">São Paulo, SP</div>
-                    <p>"Eu não sabia nada de confeitaria e consegui fazer na primeira tentativa! As receitas são muito bem explicadas. Minha família amou o de Nutella."</p>
-                </div>
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=5" alt="Foto de cliente">
-                    <div class="author">Lucas P.</div>
-                    <div class="location">Belo Horizonte, MG</div>
-                    <p>"Comprei por curiosidade e virei fã. É muito mais fácil do que parece. O fato de não precisar de fogão ajuda muito na correria do dia a dia."</p>
-                </div>
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=8" alt="Foto de cliente">
-                    <div class="author">Fernanda L.</div>
-                    <div class="location">Curitiba, PR</div>
-                    <p>"Adicionei os mochIs no cardápio da minha doceria e foi um sucesso instantâneo! As dicas para deixar eles 'instagramáveis' fizeram toda a diferença."</p>
-                </div>
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=12" alt="Foto de cliente">
-                    <div class="author">Beatriz Costa</div>
-                    <div class="location">Rio de Janeiro, RJ</div>
-                    <p>"Material incrível, super completo e fofo. As crianças adoraram me ajudar a preparar, virou uma atividade de família. Recomendo muito!"</p>
-                </div>
-                 <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=25" alt="Foto de cliente">
-                    <div class="author">Thiago Alves</div>
-                    <div class="location">Salvador, BA</div>
-                    <p>"Sempre quis aprender a fazer mochi, mas as receitas da internet eram complicadas. Este ebook simplificou tudo! Valeu cada centavo."</p>
-                </div>
-                 <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=31" alt="Foto de cliente">
-                    <div class="author">Juliana Ribeiro</div>
-                    <div class="location">Fortaleza, CE</div>
-                    <p>"Fiquei chocada com a variedade de recheios. O de Oreo é simplesmente perfeito! Já estou vendendo para as amigas e tirando um dinheirinho extra."</p>
-                </div>
-                 <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=45" alt="Foto de cliente">
-                    <div class="author">Carlos Eduardo</div>
-                    <div class="location">Porto Alegre, RS</div>
-                    <p>"Sou estudante e moro em apê pequeno. A praticidade de não usar fogão foi o que me conquistou. Faço um lanche rápido e delicioso."</p>
-                </div>
-                 <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/80?img=56" alt="Foto de cliente">
-                    <div class="author">Amanda Nunes</div>
-                    <div class="location">Manaus, AM</div>
-                    <p>"O acesso pelo e-mail e WhatsApp foi imediato, super prático. O material é lindo de ver e muito fácil de seguir. Parabéns pelo trabalho!"</p>
-                </div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=1" alt="Foto de cliente"><div class="author">Mariana S.</div><div class="location">São Paulo, SP</div><p>"Eu não sabia nada de confeitaria e consegui fazer na primeira tentativa! As receitas são muito bem explicadas. Minha família amou o de Nutella."</p></div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=5" alt="Foto de cliente"><div class="author">Lucas P.</div><div class="location">Belo Horizonte, MG</div><p>"Comprei por curiosidade e virei fã. É muito mais fácil do que parece. O fato de não precisar de fogão ajuda muito na correria do dia a dia."</p></div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=8" alt="Foto de cliente"><div class="author">Fernanda L.</div><div class="location">Curitiba, PR</div><p>"Adicionei os mochIs no cardápio da minha doceria e foi um sucesso instantâneo! As dicas para deixar eles 'instagramáveis' fizeram toda a diferença."</p></div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=12" alt="Foto de cliente"><div class="author">Beatriz Costa</div><div class="location">Rio de Janeiro, RJ</div><p>"Material incrível, super completo e fofo. As crianças adoraram me ajudar a preparar, virou uma atividade de família. Recomendo muito!"</p></div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=25" alt="Foto de cliente"><div class="author">Thiago Alves</div><div class="location">Salvador, BA</div><p>"Sempre quis aprender a fazer mochi, mas as receitas da internet eram complicadas. Este ebook simplificou tudo! Valeu cada centavo."</p></div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=31" alt="Foto de cliente"><div class="author">Juliana Ribeiro</div><div class="location">Fortaleza, CE</div><p>"Fiquei chocada com a variedade de recheios. O de Oreo é simplesmente perfeito! Já estou vendendo para as amigas e tirando um dinheirinho extra."</p></div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=45" alt="Foto de cliente"><div class="author">Carlos Eduardo</div><div class="location">Porto Alegre, RS</div><p>"Sou estudante e moro em apê pequeno. A praticidade de não usar fogão foi o que me conquistou. Faço um lanche rápido e delicioso."</p></div>
+                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=56" alt="Foto de cliente"><div class="author">Amanda Nunes</div><div class="location">Manaus, AM</div><p>"O acesso pelo e-mail e WhatsApp foi imediato, super prático. O material é lindo de ver e muito fácil de seguir. Parabéns pelo trabalho!"</p></div>
             </div>
         </div>
     </section>
@@ -465,35 +482,44 @@
     <section class="offer">
         <div class="container">
             <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos" style="max-width: 280px; margin-bottom: 20px;">
-            <h2>Escolha seu plano</h2>
-            <p>Mas atenção ⚠️: o desconto especial é válido somente para o plano completo e pode sair do ar a qualquer momento.</p>
+            <h2 class="section-title">Escolha seu plano</h2>
+            <p>
+                <svg class="icon" style="color: #f39c12;"><use xlink:href="#icon-warning"/></svg>
+                <strong>Atenção:</strong> o desconto especial é válido somente para o plano completo e pode sair do ar a qualquer momento.
+            </p>
             <div class="offer-plans">
                 <!-- Plano Básico -->
                 <div class="plan basic">
-                    <h3>🥉 Plano Básico</h3>
+                    <h3><svg class="icon"><use xlink:href="#icon-medal-bronze"/></svg> Plano Básico</h3>
                     <div class="price-info">R$10,00</div>
                     <ul>
-                        <li>Ebook com 30 receitas de Mochi adaptadas para o Brasil</li>
-                        <li>Receitas simples e fáceis de fazer em casa</li>
-                        <li>Acesso imediato por e-mail e whatsapp</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Ebook com 30 receitas de Mochi</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Receitas simples e fáceis de fazer</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Acesso por e-mail e whatsapp</li>
                     </ul>
-                    <a href="#" class="plan-button basic-button">➡️ Quero o Básico por R$10</a>
+                    <a href="#" class="plan-button basic-button">
+                        <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
+                        Quero o Básico por R$10
+                    </a>
                     <div class="payment-info">Pagamento único, acesso por 3 meses</div>
                 </div>
                 <!-- Plano Completo -->
                 <div class="plan complete">
-                    <div class="badge">🔥 Mais vendido & com desconto!</div>
-                    <h3>🥇 Plano Completo</h3>
+                    <div class="badge"><svg class="icon" style="width:1.1em; height:1.1em;"><use xlink:href="#icon-fire"/></svg> Mais vendido & com desconto!</div>
+                    <h3><svg class="icon"><use xlink:href="#icon-medal-gold"/></svg> Plano Completo</h3>
                     <div class="price-info"><span>R$47,00</span> → HOJE R$17,00</div>
                     <ul>
-                        <li>Ebook com 50 receitas de Mochi adaptadas para o Brasil</li>
-                        <li>Guia de recheios criativos (Nutella, Oreo, Morango, etc)</li>
-                        <li>Mochis coloridos e especiais (efeito Instagram)</li>
-                        <li>Versões fitness & geladas para surpreender</li>
-                        <li>Checklist de ingredientes baratos</li>
-                        <li>Acesso imediato + bônus exclusivos</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Ebook com 50 receitas de Mochi</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Guia de recheios criativos</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Mochis coloridos e especiais</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Versões fitness & geladas</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Checklist de ingredientes baratos</li>
+                        <li><svg class="icon"><use xlink:href="#icon-sakura"/></svg> Acesso imediato + bônus</li>
                     </ul>
-                    <a href="#" class="plan-button complete-button">➡️ Quero o Completo por R$17</a>
+                    <a href="#" class="plan-button complete-button">
+                        <svg class="icon"><use xlink:href="#icon-arrow"/></svg>
+                        Quero o Completo por R$17
+                    </a>
                     <div class="payment-info">Pagamento único, acesso pra sempre</div>
                 </div>
             </div>
@@ -503,7 +529,7 @@
     <!-- Seção 6 – Garantia Simples -->
     <section class="guarantee">
         <div class="container">
-             <h2>Sua Satisfação ou seu Dinheiro de Volta!</h2>
+             <h2 class="section-title">Sua Satisfação ou seu Dinheiro de Volta!</h2>
             <p>Se por qualquer motivo você não gostar do material, você tem até 30 dias para pedir seu dinheiro de volta. É risco zero pra você.</p>
         </div>
     </section>
@@ -511,22 +537,34 @@
     <!-- Seção 7 – FAQ (dúvidas comuns) -->
     <section class="faq">
         <div class="container">
-            <h2>Perguntas & Respostas</h2>
+            <h2 class="section-title">Perguntas & Respostas</h2>
             <div class="faq-item">
-                <div class="question">❓ Preciso ter experiência na cozinha?</div>
-                <div class="answer">👉 Não! As receitas são simples e qualquer pessoa pode seguir.</div>
+                <div class="question">
+                    <svg class="icon"><use xlink:href="#icon-question"/></svg>
+                    Preciso ter experiência na cozinha?
+                </div>
+                <div class="answer">Não! As receitas são simples e qualquer pessoa pode seguir.</div>
             </div>
             <div class="faq-item">
-                <div class="question">❓ Precisa de fogão?</div>
-                <div class="answer">👉 Não! Todas as receitas são adaptadas e podem ser feitas de forma prática.</div>
+                <div class="question">
+                    <svg class="icon"><use xlink:href="#icon-question"/></svg>
+                    Precisa de fogão?
+                </div>
+                <div class="answer">Não! Todas as receitas são adaptadas e podem ser feitas de forma prática.</div>
             </div>
             <div class="faq-item">
-                <div class="question">❓ Como vou receber o material?</div>
-                <div class="answer">👉 O acesso é 100% digital, você recebe por e-mail imediatamente após a compra.</div>
+                <div class="question">
+                     <svg class="icon"><use xlink:href="#icon-question"/></svg>
+                    Como vou receber o material?
+                </div>
+                <div class="answer">O acesso é 100% digital, você recebe por e-mail imediatamente após a compra.</div>
             </div>
             <div class="faq-item">
-                <div class="question">❓ Tem validade?</div>
-                <div class="answer">👉 Não! O material é seu pra sempre.</div>
+                <div class="question">
+                     <svg class="icon"><use xlink:href="#icon-question"/></svg>
+                     Tem validade?
+                </div>
+                <div class="answer">Não! O material é seu pra sempre.</div>
             </div>
         </div>
     </section>

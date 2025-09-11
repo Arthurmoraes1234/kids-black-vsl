@@ -26,7 +26,7 @@
         }
 
         .container {
-            max-width: 850px;
+            max-width: 960px; /* Aumentado para preencher mais a tela */
             margin: 0 auto;
             padding: 20px;
         }
@@ -54,33 +54,33 @@
         /* --- Seção 1: Hero --- */
         .hero {
             background: linear-gradient(145deg, var(--soft-pink), var(--soft-lilac));
-            padding: 25px 20px 60px 20px; /* Padding superior bem menor */
+            padding: 25px 20px 60px 20px;
         }
 
         .hero img.logo {
-            max-width: 120px; /* Logo ainda menor */
-            margin-bottom: 5px; /* Muito mais perto do título */
+            max-width: 120px;
+            margin-bottom: 5px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3rem; /* Título um pouco maior para a nova largura */
             font-weight: 700;
             line-height: 1.2;
             margin: 0;
         }
 
         .hero h2 {
-            font-size: 1.3rem;
+            font-size: 1.4rem; /* Subtítulo maior */
             font-weight: 400;
-            max-width: 650px;
+            max-width: 700px;
             margin: 15px auto 30px auto;
         }
 
         .video-placeholder {
             background-color: #fff;
             width: 100%;
-            max-width: 450px;
-            height: 280px;
+            max-width: 500px; /* Maior para acompanhar o layout */
+            height: 310px;
             margin: 20px auto;
             border-radius: 15px;
             display: flex;
@@ -93,7 +93,7 @@
         }
 
         .cta-button, .plan-button {
-            display: inline-flex; /* Alterado para alinhar ícone e texto */
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
@@ -146,14 +146,14 @@
         }
 
         .wow-effect img {
-            max-width: 280px;
+            max-width: 300px; /* Imagem maior */
             margin-bottom: 25px;
         }
 
         .wow-effect p {
-            font-size: 1.1rem;
+            font-size: 1.15rem; /* Texto levemente maior */
             line-height: 1.7;
-            max-width: 700px;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 20px;
@@ -165,7 +165,7 @@
         }
         
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem; /* Títulos maiores */
             margin-bottom: 35px;
             display: inline-flex;
             align-items: center;
@@ -176,7 +176,7 @@
             list-style: none;
             padding: 0;
             text-align: left;
-            max-width: 550px;
+            max-width: 600px; /* Lista maior */
             margin: 0 auto 35px auto;
         }
 
@@ -194,7 +194,7 @@
         
         .what-you-get .icon {
             color: var(--primary-cta);
-            flex-shrink: 0; /* Impede que o ícone esprema */
+            flex-shrink: 0;
         }
 
         /* --- Seção 4: Provas --- */
@@ -205,7 +205,7 @@
         
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Cards maiores */
             gap: 25px;
         }
         .testimonial-card {
@@ -240,12 +240,12 @@
             line-height: 1.6;
         }
 
-        /* --- Seção 5: Oferta (REORGANIZADA) --- */
+        /* --- Seção 5: Oferta (CORRIGIDA) --- */
         .offer {
             background-color: var(--white);
         }
-        .offer p {
-            max-width: 550px;
+        .offer p.subtitle {
+            max-width: 600px;
             margin: 10px auto 40px auto;
             font-size: 1.1rem;
         }
@@ -253,14 +253,14 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            gap: 40px; /* Espaçamento aumentado para evitar colisão */
+            align-items: stretch; /* Alinha os cards pela altura */
+            gap: 40px;
         }
         .plan {
             border: 2px solid var(--soft-lilac);
             border-radius: 20px;
             padding: 30px;
-            width: 320px;
+            width: 350px; /* Cards de oferta maiores */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -269,27 +269,24 @@
         }
         .plan.complete {
             border: 3px solid var(--primary-cta);
-            position: relative;
-            transform: scale(1.08);
+            transform: scale(1.05); /* Escala levemente menor para não ficar exagerado */
             box-shadow: 0 10px 30px rgba(255, 133, 162, 0.2);
         }
-        .plan.complete .badge {
-            position: absolute;
-            top: -20px; /* Posição ajustada */
-            left: 50%;
-            transform: translateX(-50%);
+        /* CORREÇÃO DO BADGE */
+        .plan .badge {
             background-color: var(--primary-cta);
             color: var(--white);
             padding: 8px 18px;
-            border-radius: 20px;
+            border-radius: 12px;
             font-size: 1rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            margin: 0 auto 20px auto; /* Centralizado e dentro do card */
         }
         .plan h3 {
-            font-size: 1.6rem;
+            font-size: 1.7rem; /* Título do plano maior */
             margin: 0;
             display: flex;
             align-items: center;
@@ -302,6 +299,7 @@
             text-align: left;
             margin: 25px 0;
             font-size: 1rem;
+            flex-grow: 1; /* Faz a lista crescer para alinhar os botões */
         }
         .plan li {
             margin-bottom: 12px;
@@ -334,12 +332,12 @@
         }
         .plan .price-info {
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 2.2rem; /* Preço maior */
             margin: 20px 0 15px 0;
         }
         .plan .price-info span {
             text-decoration: line-through;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #999;
         }
          .plan .payment-info {
@@ -353,11 +351,11 @@
             background-color: var(--soft-lilac);
         }
         .guarantee p {
-            max-width: 550px;
+            max-width: 600px;
             margin: 0 auto;
             line-height: 1.7;
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
         
         /* --- Seção 7: FAQ --- */
@@ -365,7 +363,7 @@
             background-color: var(--white);
         }
         .faq-item {
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto 15px auto;
             text-align: left;
             background-color: var(--bg-light);
@@ -383,7 +381,7 @@
          .faq-item .answer {
             font-size: 1rem;
             padding-top: 5px;
-            padding-left: 34px; /* Alinhado com a pergunta */
+            padding-left: 34px;
          }
 
         footer {
@@ -483,7 +481,7 @@
         <div class="container">
             <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos" style="max-width: 280px; margin-bottom: 20px;">
             <h2 class="section-title">Escolha seu plano</h2>
-            <p>
+            <p class="subtitle">
                 <svg class="icon" style="color: #f39c12;"><use xlink:href="#icon-warning"/></svg>
                 <strong>Atenção:</strong> o desconto especial é válido somente para o plano completo e pode sair do ar a qualquer momento.
             </p>

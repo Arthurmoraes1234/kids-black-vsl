@@ -98,7 +98,7 @@
         .wow-highlights li { display: flex; align-items: center; gap: 15px; font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; background-color: rgba(255,255,255,0.5); padding: 15px; border-radius: 12px; }
         .wow-highlights .icon { color: var(--primary-cta); flex-shrink: 0; }
         
-        /* --- SEÇÃO 3 (O QUE VOCÊ VAI APRENDER) - COM VÍDEO --- */
+        /* --- SEÇÃO 3 (O QUE VOCÊ VAI APRENDER) --- */
         .what-you-get { background-color: var(--white); }
         .section-title { font-size: 2.5rem; margin-bottom: 35px; display: inline-flex; align-items: center; justify-content: center; gap: 15px; width: 100%; }
         .learn-content-wrapper { display: flex; align-items: center; gap: 50px; text-align: left; margin-bottom: 40px; }
@@ -106,46 +106,23 @@
         .learn-text ul { list-style:none; padding: 0; }
         .learn-text li { background-color: var(--soft-pink); padding: 18px; border-radius: 12px; margin-bottom: 12px; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 12px; }
         .learn-text .icon { color: var(--primary-cta); flex-shrink: 0; }
-        
-        .learn-video-mockup {
-            flex: 1;
-            position: relative;
-            max-width: 300px; /* Largura do mockup */
-            margin: 0 auto;
-            background-color: #111;
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15), inset 0 0 2px rgba(255,255,255,0.2);
-        }
-        .learn-video-mockup::before { /* Notch do iPhone */
-            content: '';
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40%;
-            height: 20px;
-            background-color: #111;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            z-index: 2;
-        }
-        .learn-video-mockup video {
-            width: 100%;
-            height: 100%;
-            display: block;
-            border-radius: 28px;
-            object-fit: cover;
-        }
+        .learn-video-mockup { flex: 1; position: relative; max-width: 300px; margin: 0 auto; background-color: #111; border-radius: 40px; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15), inset 0 0 2px rgba(255,255,255,0.2); }
+        .learn-video-mockup::before { content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 40%; height: 20px; background-color: #111; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; z-index: 2; }
+        .learn-video-mockup video { width: 100%; height: 100%; display: block; border-radius: 28px; object-fit: cover; }
 
-        /* --- Demais Seções --- */
+        /* --- SEÇÃO 4 (DEPOIMENTOS) - ATUALIZADA --- */
         .testimonials { background-color: var(--bg-light); }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .testimonial-card { background-color: var(--white); border: 2px solid var(--soft-pink); padding: 25px; border-radius: 15px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .testimonial-card img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; float: left; margin-right: 15px; }
-        .testimonial-card .author { font-weight: 700; font-size: 1.1rem; padding-top: 10px; }
+        .testimonial-card { background-color: var(--white); border: 2px solid var(--soft-pink); padding: 25px; border-radius: 15px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.03); display: flex; flex-direction: column; }
+        .testimonial-header { display: flex; align-items: center; margin-bottom: 15px; }
+        .testimonial-card .profile-pic { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-right: 15px; }
+        .testimonial-author-info { flex-grow: 1; }
+        .testimonial-card .author { font-weight: 700; font-size: 1.1rem; }
         .testimonial-card .location { font-size: 0.9rem; color: #aaa; }
-        .testimonial-card p { margin-top: 15px; clear: both; font-size: 1rem; line-height: 1.6; }
+        .testimonial-card p { font-size: 1rem; line-height: 1.6; margin: 0; flex-grow: 1; }
+        .testimonial-mochi-img { width: 100%; border-radius: 10px; margin-top: 15px; }
+
+        /* --- Demais Seções --- */
         .offer { background-color: var(--white); }
         .offer p.subtitle { max-width: 600px; margin: 10px auto 40px auto; font-size: 1.1rem; }
         .offer-plans { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 40px; }
@@ -170,11 +147,11 @@
         .faq-item .answer { font-size: 1rem; padding-top: 5px; padding-left: 34px; }
         footer { padding: 30px; font-size: 0.9rem; color: #aaa; }
 
-        @media (max-width: 900px) { /* Ponto de quebra para seções de 2 colunas */
+        @media (max-width: 900px) {
             .wow-content-wrapper, .learn-content-wrapper { flex-direction: column; text-align: center; gap: 30px; }
             .wow-text, .learn-text { text-align: left; }
             .wow-text h3, .learn-text h3 { text-align: center; }
-            .learn-content-wrapper { flex-direction: column-reverse; /* Vídeo primeiro no mobile */ }
+            .learn-content-wrapper { flex-direction: column-reverse; }
         }
 
         @media (max-width: 768px) {
@@ -271,10 +248,72 @@
         <div class="container">
             <h2 class="section-title">Quem já fez, amou!<svg class="icon" style="color: var(--primary-cta); width:1.3em; height:1.3em;"><use xlink:href="#icon-heart"/></svg></h2>
             <div class="testimonial-grid">
-                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=1" alt="Foto de cliente"><div class="author">Mariana S.</div><div class="location">São Paulo, SP</div><p>"Eu não sabia nada de confeitaria e consegui fazer na primeira tentativa! As receitas são muito bem explicadas. Minha família amou o de Nutella."</p></div>
-                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=5" alt="Foto de cliente"><div class="author">Lucas P.</div><div class="location">Belo Horizonte, MG</div><p>"Comprei por curiosidade e virei fã. É muito mais fácil do que parece. O fato de não precisar de fogão ajuda muito na correria do dia a dia."</p></div>
-                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=8" alt="Foto de cliente"><div class="author">Fernanda L.</div><div class="location">Curitiba, PR</div><p>"Adicionei os mochIs no cardápio da minha doceria e foi um sucesso instantâneo! As dicas para deixar eles 'instagramáveis' fizeram toda a diferença."</p></div>
-                <div class="testimonial-card"><img src="https://i.pravatar.cc/80?img=12" alt="Foto de cliente"><div class="author">Beatriz Costa</div><div class="location">Rio de Janeiro, RJ</div><p>"Material incrível, super completo e fofo. As crianças adoraram me ajudar a preparar, virou uma atividade de família. Recomendo muito!"</p></div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://i.imgur.com/BKN5010.jpg" alt="Foto de cliente Mariana" class="profile-pic">
+                        <div class="testimonial-author-info">
+                            <div class="author">Mariana S.</div>
+                            <div class="location">São Paulo, SP</div>
+                        </div>
+                    </div>
+                    <p>"Eu não sabia nada de confeitaria e consegui fazer na primeira tentativa! As receitas são muito bem explicadas. Minha família amou o de Nutella."</p>
+                    <img src="https://i.imgur.com/39p82M1.jpg" alt="Mochi feito pela cliente" class="testimonial-mochi-img">
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://i.imgur.com/dZ1J2j1.jpg" alt="Foto de cliente Lucas" class="profile-pic">
+                        <div class="testimonial-author-info">
+                            <div class="author">Lucas P.</div>
+                            <div class="location">Belo Horizonte, MG</div>
+                        </div>
+                    </div>
+                    <p>"Comprei por curiosidade e virei fã. É muito mais fácil do que parece. O fato de não precisar de fogão ajuda muito na correria do dia a dia."</p>
+                     <img src="https://i.imgur.com/x0m3K3z.jpg" alt="Mochi feito pelo cliente" class="testimonial-mochi-img">
+                </div>
+                <div class="testimonial-card">
+                     <div class="testimonial-header">
+                        <img src="https://i.imgur.com/sC5I3t7.jpg" alt="Foto de cliente Fernanda" class="profile-pic">
+                        <div class="testimonial-author-info">
+                            <div class="author">Fernanda L.</div>
+                            <div class="location">Curitiba, PR</div>
+                        </div>
+                    </div>
+                    <p>"Adicionei os mochIs no cardápio da minha doceria e foi um sucesso instantâneo! As dicas para deixar eles 'instagramáveis' fizeram toda a diferença."</p>
+                    <img src="https://i.imgur.com/48m39aH.jpg" alt="Mochi feito pela cliente" class="testimonial-mochi-img">
+                </div>
+                <div class="testimonial-card">
+                     <div class="testimonial-header">
+                        <img src="https://i.imgur.com/hO1gy8p.jpg" alt="Foto de cliente Beatriz" class="profile-pic">
+                        <div class="testimonial-author-info">
+                           <div class="author">Beatriz Costa</div>
+                           <div class="location">Rio de Janeiro, RJ</div>
+                        </div>
+                    </div>
+                    <p>"Material incrível, super completo e fofo. As crianças adoraram me ajudar a preparar, virou uma atividade de família. Recomendo muito!"</p>
+                    <img src="https://i.imgur.com/7gK5Y8c.jpg" alt="Mochi feito pela cliente" class="testimonial-mochi-img">
+                </div>
+                <div class="testimonial-card">
+                     <div class="testimonial-header">
+                        <img src="https://i.imgur.com/39Lo88X.jpg" alt="Foto de cliente Thiago" class="profile-pic">
+                        <div class="testimonial-author-info">
+                           <div class="author">Thiago Alves</div>
+                           <div class="location">Salvador, BA</div>
+                        </div>
+                    </div>
+                    <p>"Sempre quis aprender a fazer mochi, mas as receitas da internet eram complicadas. Este ebook simplificou tudo! Valeu cada centavo."</p>
+                    <img src="https://i.imgur.com/tYt3i3B.jpg" alt="Mochi feito pelo cliente" class="testimonial-mochi-img">
+                </div>
+                <div class="testimonial-card">
+                     <div class="testimonial-header">
+                        <img src="https://i.imgur.com/sJ7eT2J.jpg" alt="Foto de cliente Juliana" class="profile-pic">
+                        <div class="testimonial-author-info">
+                           <div class="author">Juliana Ribeiro</div>
+                           <div class="location">Fortaleza, CE</div>
+                        </div>
+                    </div>
+                    <p>"Fiquei chocada com a variedade de recheios. O de Oreo é simplesmente perfeito! Já estou vendendo para as amigas e tirando um dinheirinho extra."</p>
+                    <img src="https://i.imgur.com/T0TqsfX.jpg" alt="Mochi feito pela cliente" class="testimonial-mochi-img">
+                </div>
             </div>
         </div>
     </section>

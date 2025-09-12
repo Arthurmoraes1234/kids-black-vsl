@@ -17,7 +17,6 @@
             --white: #FFFFFF;
         }
 
-        /* Adicionado para rolagem suave */
         html {
             scroll-behavior: smooth;
         }
@@ -55,48 +54,7 @@
             width: 1.4em;
             height: 1.4em;
         }
-
-        /* --- SEÇÃO 1 (HERO) --- */
-        .hero {
-            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lilac));
-            padding: 20px 20px 50px 20px;
-        }
-
-        .hero img.logo {
-            max-width: 120px;
-            margin-bottom: 5px;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin: 0 0 15px 0;
-        }
-
-        .hero h2 {
-            font-size: 1.4rem;
-            font-weight: 400;
-            max-width: 700px;
-            margin: 0 auto 25px auto;
-        }
-
-        .video-placeholder {
-            background-color: #fff;
-            width: 100%;
-            max-width: 550px;
-            height: 340px;
-            margin: 0 auto 25px auto;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: var(--dark-text);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            font-size: 1.1rem;
-        }
-
+        
         .cta-button {
             display: inline-flex;
             align-items: center;
@@ -112,8 +70,17 @@
             transition: transform 0.2s ease-in-out;
             margin-top: 0;
         }
-        
         .cta-button:hover { transform: scale(1.05); }
+
+        /* --- SEÇÃO 1 (HERO) --- */
+        .hero {
+            background: linear-gradient(145deg, var(--soft-pink), var(--soft-lilac));
+            padding: 20px 20px 50px 20px;
+        }
+        .hero img.logo { max-width: 120px; margin-bottom: 5px; }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin: 0 0 15px 0; }
+        .hero h2 { font-size: 1.4rem; font-weight: 400; max-width: 700px; margin: 0 auto 25px auto; }
+        .video-placeholder { background-color: #fff; width: 100%; max-width: 550px; height: 340px; margin: 0 auto 25px auto; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--dark-text); box-shadow: 0 4px 15px rgba(0,0,0,0.08); font-size: 1.1rem; }
         .price-tag { font-weight: 600; font-size: 1.1rem; margin-top: 10px; }
         .checklist { list-style: none; padding: 0; display: flex; justify-content: center; gap: 30px; margin-top: 20px; font-size: 1.1rem; }
         .checklist li { display: inline-flex; align-items: center; gap: 8px; }
@@ -131,12 +98,47 @@
         .wow-highlights li { display: flex; align-items: center; gap: 15px; font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; background-color: rgba(255,255,255,0.5); padding: 15px; border-radius: 12px; }
         .wow-highlights .icon { color: var(--primary-cta); flex-shrink: 0; }
         
-        /* --- Demais Seções --- */
-        .section-title { font-size: 2.5rem; margin-bottom: 35px; display: inline-flex; align-items: center; gap: 15px; }
+        /* --- SEÇÃO 3 (O QUE VOCÊ VAI APRENDER) - COM VÍDEO --- */
         .what-you-get { background-color: var(--white); }
-        .what-you-get ul { max-width: 650px; margin: 0 auto 35px auto; text-align: left; list-style:none; padding: 0; }
-        .what-you-get li { background-color: var(--soft-pink); padding: 18px; border-radius: 12px; margin-bottom: 12px; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 12px; }
-        .what-you-get .icon { color: var(--primary-cta); flex-shrink: 0; }
+        .section-title { font-size: 2.5rem; margin-bottom: 35px; display: inline-flex; align-items: center; justify-content: center; gap: 15px; width: 100%; }
+        .learn-content-wrapper { display: flex; align-items: center; gap: 50px; text-align: left; margin-bottom: 40px; }
+        .learn-text { flex: 1.2; }
+        .learn-text ul { list-style:none; padding: 0; }
+        .learn-text li { background-color: var(--soft-pink); padding: 18px; border-radius: 12px; margin-bottom: 12px; font-weight: 600; font-size: 1.1rem; display: flex; align-items: center; gap: 12px; }
+        .learn-text .icon { color: var(--primary-cta); flex-shrink: 0; }
+        
+        .learn-video-mockup {
+            flex: 1;
+            position: relative;
+            max-width: 300px; /* Largura do mockup */
+            margin: 0 auto;
+            background-color: #111;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15), inset 0 0 2px rgba(255,255,255,0.2);
+        }
+        .learn-video-mockup::before { /* Notch do iPhone */
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 20px;
+            background-color: #111;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 2;
+        }
+        .learn-video-mockup video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 28px;
+            object-fit: cover;
+        }
+
+        /* --- Demais Seções --- */
         .testimonials { background-color: var(--bg-light); }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .testimonial-card { background-color: var(--white); border: 2px solid var(--soft-pink); padding: 25px; border-radius: 15px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
@@ -168,25 +170,26 @@
         .faq-item .answer { font-size: 1rem; padding-top: 5px; padding-left: 34px; }
         footer { padding: 30px; font-size: 0.9rem; color: #aaa; }
 
+        @media (max-width: 900px) { /* Ponto de quebra para seções de 2 colunas */
+            .wow-content-wrapper, .learn-content-wrapper { flex-direction: column; text-align: center; gap: 30px; }
+            .wow-text, .learn-text { text-align: left; }
+            .wow-text h3, .learn-text h3 { text-align: center; }
+            .learn-content-wrapper { flex-direction: column-reverse; /* Vídeo primeiro no mobile */ }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 15px; }
             section { padding: 40px 15px; }
-            
             .hero h1 { font-size: 2.1rem; }
             .hero h2 { font-size: 1.1rem; line-height: 1.5; }
             .video-placeholder { height: 250px; }
             .cta-button { font-size: 1.2rem; padding: 15px 30px; }
             .checklist { flex-direction: column; gap: 10px; align-items: center; }
-
-            .wow-content-wrapper { flex-direction: column; text-align: center; gap: 30px; }
-            .wow-text { text-align: left; }
-            .wow-text h3 { font-size: 2rem; text-align: center; }
-
             .section-title { font-size: 2rem; }
             .offer-plans { gap: 30px; }
             .plan { width: 100%; max-width: 380px; transform: none !important; }
-            
             .testimonial-grid { grid-template-columns: 1fr; }
+            .wow-text h3 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -243,13 +246,23 @@
     <section class="what-you-get">
         <div class="container">
             <h2 class="section-title">Veja o que você vai aprender</h2>
-            <ul>
-                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> 30 receitas de Mochi fofos e coloridos</li>
-                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Versões recheadas (Nutella, Oreo, morango, e muito mais)</li>
-                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Receitas sem fogão – rápidas e práticas</li>
-                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Ingredientes baratos encontrados em qualquer mercado</li>
-                <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Sugestões criativas para deixar seus Mochis instagramáveis</li>
-            </ul>
+            <div class="learn-content-wrapper">
+                <div class="learn-text">
+                    <ul>
+                        <li><svg class="icon"><use xlink:href="#icon-check"/></svg> 30 receitas de Mochi fofos e coloridos</li>
+                        <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Versões recheadas (Nutella, Oreo, morango, e muito mais)</li>
+                        <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Receitas sem fogão – rápidas e práticas</li>
+                        <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Ingredientes baratos encontrados em qualquer mercado</li>
+                        <li><svg class="icon"><use xlink:href="#icon-check"/></svg> Sugestões criativas para deixar seus Mochis instagramáveis</li>
+                    </ul>
+                </div>
+                <div class="learn-video-mockup">
+                    <video playsinline autoplay muted loop>
+                        <source src="https://video.wixstatic.com/video/512b9f_bf2d20d8c29841fa8c114e7cc8314991/480p/mp4/file.mp4" type="video/mp4">
+                        Seu navegador não suporta o vídeo.
+                    </video>
+                </div>
+            </div>
             <a href="#oferta" class="cta-button"><svg class="icon"><use xlink:href="#icon-arrow"/></svg>Quero acessar agora</a>
         </div>
     </section>
@@ -266,7 +279,6 @@
         </div>
     </section>
 
-    <!-- Adicionado o ID aqui -->
     <section class="offer" id="oferta">
         <div class="container">
             <img src="https://i.imgur.com/SUjfDzL.png" alt="Mochis Coloridos" style="max-width: 280px; margin-bottom: 20px;">

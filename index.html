@@ -1,128 +1,324 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aventurinhas - Aventuras Reais</title>
+// ================================
+// 🔧 CÓDIGO OTIMIZADO - EXEMPLOS PRÁTICOS
+// ================================
+
+// 1. COMPONENTE DE IMAGEM OTIMIZADO
+const OptimizedImage = ({ src, alt, className = "", ...props }) => {
+  const [loaded, setLoaded] = useState(false);
+  const [imgSrc, setImgSrc] = useState(null);
+
+  useEffect(() => {
+    // Debounce para evitar carregamento imediato
+    const timer = setTimeout(() => {
+      setImgSrc(src);
+    }, 50);
     
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    return () => clearTimeout(timer);
+  }, [src]);
+
+  return (
+    <div className="relative overflow-hidden">
+      {!loaded && (
+        <div className={`absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse ${className}`} />
+      )}
+      <img
+        src={imgSrc}
+        alt={alt}
+        onLoad={() => setLoaded(true)}
+        loading="lazy"
+        className={`transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+        {...props}
+      />
+    </div>
+  );
+};
+
+// 2. LOGO OTIMIZADO (usando o seu código)
+const OptimizedLogo = () => (
+  <OptimizedImage
+    src="https://i.imgurl.com/bl6Amwcp.png"
+    alt="Aventurinhas Logo"
+    className="h-28 md:h-36 max-w-none hover:scale-105 transition-transform drop-shadow-lg"
+  />
+);
+
+// 3. IMAGEM DE DESTAQUE OTIMIZADA
+const OptimizedHighlightImage = () => (
+  <OptimizedImage
+    src="https://i.imgurl.com/MZrBRnD.png"
+    alt="Destacados Aventurinhas"
+    className="w-full h-auto object-cover rounded-t-3xl"
+  />
+);
+
+// 4. VÍDEO OTIMIZADO COM CARREGAMENTO TARDIO
+const OptimizedVideo = ({ ref: refProp, src, autoPlay = true, muted = true, loop = true, playsInline = true, className = "", ...props }) => {
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // Carrega o vídeo apenas quando necessário
+    const timer = setTimeout(() => {
+      setShouldLoad(true);
+    }, 200);
     
-    <script src="https://unpkg.com/lucide@latest"></script>
+    return () => clearTimeout(timer);
+  }, []);
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
-        html { font-family: 'Google Sans', sans-serif; scroll-behavior: smooth; }
-        .bg-brand-blue { background-color: #00A3FF; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-    </style>
-</head>
-<body>
-    <div id="root"></div>
+  useEffect(() => {
+    // Auto play apenas quando visível
+    if (videoRef.current && shouldLoad) {
+      videoRef.current.play().catch(console.error);
+    }
+  }, [shouldLoad]);
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+  if (!shouldLoad) {
+    return (
+      <div className={`w-full aspect-video bg-gradient-to-br from-gray-700 to-gray-900 rounded-3xl flex items-center justify-center ${className}`}>
+        <div className="text-white text-lg">Carregando vídeo...</div>
+      </div>
+    );
+  }
 
-        // Componentes Lucide simulados (já que estamos via CDN direto)
-        const Icon = ({ name, size = 24, className = "" }) => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return <i data-lucide={name} style={{width: size, height: size}} className={className}></i>;
-        };
+  return (
+    <video
+      ref={(el) => {
+        videoRef.current = el;
+        if (refProp) refProp.current = el;
+      }}
+      src={src}
+      autoPlay={autoPlay}
+      muted={muted}
+      loop={loop}
+      playsInline={playsInline}
+      preload="metadata"
+      className={className}
+      {...props}
+    />
+  );
+};
 
-        const Button = ({ children, variant = 'primary', fullWidth = false, onClick }) => {
-            const base = "relative font-bold rounded-2xl transition-all active:translate-y-1 p-4 flex items-center justify-center gap-2 select-none";
-            const variants = {
-                primary: "bg-[#FFD93D] text-amber-900 border-b-4 border-[#F9C80E]",
-                secondary: "bg-[#00A3FF] text-white border-b-4 border-[#0077B6]"
-            };
-            return (
-                <button onClick={onClick} className={`${base} ${variants[variant]} ${fullWidth ? 'w-full' : ''}`}>
-                    {children}
-                </button>
-            );
-        };
+// 5. PLACEHOLDER PARA INSTAGRAM
+const InstagramPlaceholder = ({ usuario, avatar, text, time, likes, replies, ...props }) => {
+  const [loaded, setLoaded] = useState(false);
 
-        const App = () => {
-            const [vslMuted, setVslMuted] = useState(true);
-            const vslRef = useRef(null);
+  return (
+    <div className="flex flex-col gap-3 mb-6 animate-fade-in group">
+      <div className="flex gap-3">
+        <OptimizedImage
+          src={avatar}
+          alt={usuario}
+          className="w-10 h-10 rounded-full object-cover border border-slate-100 shadow-sm"
+          onLoad={() => setLoaded(true)}
+        />
+        <div className="flex-1">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center">
+              <OptimizedImage
+                src={avatar}
+                alt={usuario}
+                className="w-8 h-8 rounded-full object-cover border border-slate-100"
+              />
+            </div>
+            <div className="flex items-center ml-4 mt-1">
+              <Heart size={14} className="text-slate-400 cursor-pointer hover:text-red-500 transition-colors" />
+              {likes > 0 && (
+                <span className="text-[10px] text-slate-400 mt-0.5 ml-1">
+                  {likes}
+                </span>
+              )}
+            </div>
+          </div>
+          <div className="mt-1">
+            <p className="text-[13px] md:text-sm leading-snu text-slate-700">
+              <span className="font-bold mr-2 text-slate-900 cursor-pointer hover:opacity-70 transition-opacity">
+                {usuario}
+              </span>
+              {text}
+            </p>
+            <div className="flex items-center gap-4 mt-1 text-[11px] font-semibold text-slate-400 uppercase tracking-tight">
+              <span>{time}</span>
+              <button className="hover:text-slate-600 transition-colors">
+                Responder
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {replies && replies.map((reply, idx) => (
+        <div key={idx} className="flex gap-3 mb-12 mt-2">
+          <OptimizedImage
+            src={reply.avatar}
+            alt={reply.usuario}
+            className="w-8 h-8 rounded-full object-cover border border-slate-100"
+          />
+          <div className="flex-1">
+            <div className="flex items-start justify-between">
+              <div className="flex items-center">
+                <p className="text-[13px] md:text-sm leading-snu text-slate-700">
+                  <span className="font-bold mr-2 text-slate-900 cursor-pointer hover:opacity-70 transition-opacity">
+                    {reply.usuario}
+                  </span>
+                  {reply.text}
+                </p>
+              </div>
+              <Heart size={12} className="text-slate-400 cursor-pointer hover:text-red-500 transition-colors mt-2 ml-2" />
+            </div>
+            <div className="flex items-center gap-4 mt-1 text-[11px] font-semibold text-slate-400 uppercase tracking-tight">
+              <span>{reply.time}</span>
+              <button className="hover:text-slate-600 transition-colors">
+                Responder
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-            const toggleVsl = () => {
-                if (vslRef.current) {
-                    vslRef.current.muted = !vslRef.current.muted;
-                    setVslMuted(vslRef.current.muted);
-                    vslRef.current.play();
-                }
-            };
+// 6. BOTÃO OTIMIZADO COM HOVER EFFECTS
+const OptimizedButton = ({ children, variant = 'primary', fullWidth = false, size = 'md', className = '', ...props }) => {
+  const baseStyles = "relative font-bold rounded-2xl transition-all active:translate-y-1 active:border-b-0 focus:outline-none select-none flex items-center justify-center gap-2";
+  
+  const variants = {
+    primary: "bg-brand-yellow text-amber-900 border-4 border-brand-yellowDark hover:brightness-105",
+    secondary: "bg-brand-blue text-white border-4 border-brand-blueDark hover:brightness-105",
+    accent: "bg-brand-green text-white border-4 border-brand-greenDark hover:brightness-105",
+    danger: "bg-brand-red text-white border-4 border-brand-redDark hover:brightness-105",
+  };
+  
+  const sizes = {
+    sm: "py-2 px-4 text-sm border-2",
+    md: "py-3 px-6 text-lg",
+    lg: "py-4 px-8 text-xl md:text-2xl",
+  };
+  
+  return (
+    <button
+      className={`
+        ${baseStyles}
+        ${variants[variant]}
+        ${sizes[size]}
+        ${fullWidth ? 'w-full' : ''}
+        ${className}
+      `}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
 
-            return (
-                <div className="min-h-screen bg-slate-50">
-                    {/* Header */}
-                    <header className="h-20 flex items-center justify-center relative px-4">
-                        <img src="https://i.imgur.com/bl6Amwc.png" alt="Logo" className="h-32 absolute top-2 z-50" />
-                    </header>
+// 7. USO NO SEU COMPONENTE PRINCIPAL
+const OptimizedApp = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentDate, setCurrentDate] = useState("");
+  const [vslMuted, setVslMuted] = useState(true);
+  const [testimonialMuted, setTestimonialMuted] = useState(true);
+  const vslRef = useRef(null);
+  const testimonialRef = useRef(null);
 
-                    {/* Hero */}
-                    <section className="pt-24 pb-12 px-4 bg-gradient-to-b from-sky-200 to-white text-center">
-                        <h1 className="text-3xl md:text-5xl font-extrabold text-[#0077B6] mb-6">
-                            Nas férias, seu filho precisa de um motivo pra brincar de verdade.
-                        </h1>
-                        
-                        <div className="max-w-[300px] mx-auto rounded-[2.5rem] overflow-hidden border-4 border-white shadow-2xl relative aspect-[9/16] bg-black">
-                            <video 
-                                ref={vslRef}
-                                src="https://video.wixstatic.com/video/512b9f_5bf6d2c9c08540a8bd3cbf2ec4d4661b/1080p/mp4/file.mp4"
-                                autoPlay muted loop playsInline
-                                className="w-full h-full object-cover"
-                            />
-                            <button 
-                                onClick={toggleVsl}
-                                className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2"
-                            >
-                                <Icon name={vslMuted ? "volume-x" : "volume-2"} className={vslMuted ? "text-red-500" : ""} />
-                                {vslMuted ? "LIGAR SOM" : "DESLIGAR SOM"}
-                            </button>
-                        </div>
+  // Preload de imagens críticas
+  useEffect(() => {
+    const criticalImages = [
+      'https://i.imgurl.com/bl6Amwcp.png',
+      'https://i.imgurl.com/MZrBRnD.png'
+    ];
+    
+    criticalImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
-                        <div className="mt-10 max-w-2xl mx-auto bg-white/80 backdrop-blur p-6 rounded-3xl shadow-xl border border-white">
-                            <h3 className="text-xl font-bold text-[#0077B6] mb-6">O que o Aventurinhas oferece:</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
-                                    <Icon name="home" size={20} className="text-blue-500" />
-                                    <span>Brincadeiras pela casa toda</span>
-                                </div>
-                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
-                                    <Icon name="palette" size={20} className="text-purple-500" />
-                                    <span>Criatividade manual</span>
-                                </div>
-                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
-                                    <Icon name="zap" size={20} className="text-yellow-500" />
-                                    <span>Gasto de energia saudável</span>
-                                </div>
-                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
-                                    <Icon name="smartphone" size={20} className="text-red-500" />
-                                    <span>Longe das telas</span>
-                                </div>
-                            </div>
+  // ... resto do seu código original ...
 
-                            <div className="mt-8">
-                                <p className="text-2xl font-bold">Por apenas <span className="text-4xl text-green-500">R$ 12,00</span>/mês</p>
-                                <div className="mt-4">
-                                    <Button fullWidth onClick={() => window.location.href='https://checkout.perfectpay.com.br/pay/PPU38CQ50C3'}>
-                                        <Icon name="rocket" /> QUERO AS FÉRIAS DOS SONHOS
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            );
-        };
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-brand-yellow selection:text-brand-yellowDark">
+      <header className="absolute top-0 left-0 right-0 z-50 h-[72px]">
+        <Container className="h-full flex items-center justify-between relative">
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 z-20 pt-1">
+            <OptimizedLogo /> {/* ← Substitui sua <img> */}
+          </div>
+          
+          <div className="ml-auto flex items-center gap-6 relative z-10">
+            <div className="hidden md:flex gap-6 items-center bg-white/50 px-6 py-2 rounded-full backdrop-blur-sm shadow-sm border border-white/50">
+              <button onClick={() => scrollToSection('como-funciona')} className="text-brand-blueDark font-bold hover:text-brand-blue">
+                Como Funciona
+              </button>
+              <button onClick={() => scrollToSection('beneficios')} className="text-brand-blueDark font-bold hover:text-brand-blue">
+                Benefícios
+              </button>
+              <button onClick={() => scrollToSection('planos')} className="text-brand-blueDark font-bold hover:text-brand-blue">
+                Planos
+              </button>
+              <OptimizedButton 
+                size="sm" 
+                onClick={() => scrollToSection('planos')}
+              >
+                Começar Agora
+              </OptimizedButton>
+            </div>
+            
+            <button 
+              className="md:hidden text-brand-blueDark p-2 bg-white/50 rounded-xl"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </Container>
+        
+        {isMenuOpen && (
+          <div className="fixed inset-0 -z-40 bg-white pt-32 px-6 md:hidden flex flex-col gap-6 items-center animate-fade-in">
+            <OptimizedButton fullWidth onClick={() => scrollToSection('como-funciona')}>
+              Como Funciona
+            </OptimizedButton>
+            <OptimizedButton fullWidth onClick={() => scrollToSection('beneficios')}>
+              Benefícios
+            </OptimizedButton>
+            <OptimizedButton fullWidth onClick={() => scrollToSection('planos')}>
+              Planos
+            </OptimizedButton>
+            <OptimizedButton fullWidth onClick={() => scrollToSection('planos')}>
+              Começar Agora
+            </OptimizedButton>
+          </div>
+        )}
+      </header>
+      
+      {/* Vídeo otimizado */}
+      <OptimizedVideo
+        ref={vslRef}
+        src="https://video.wixstatic.com/video/512b9f_5bf6d2c9c08540a8b3d3cbe4ec4d4661b/1080p/mp4/file.mp4"
+        autoPlay={true}
+        muted={vslMuted}
+        loop={true}
+        playsInline={true}
+        className="w-full h-full object-cover"
+      />
+      
+      {/* Botão de áudio otimizado */}
+      <OptimizedButton
+        onClick={toggleVslAudio}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md text-brand-blueDark px-6 py-3 rounded-full font-bold shadow-xl z-20 flex items-center gap-2 hover:scale-105 transition-all border-2 border-brand-blue/20"
+      >
+        {vslMuted ? (
+          <Fragment>
+            <VolumeX size={20} />
+            <span>LIGAR SOM</span>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <Volume2 size={20} />
+            <span>DESLIGAR SOM</span>
+          </Fragment>
+        )}
+      </OptimizedButton>
+    </div>
+  );
+};
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
-</html>
+export default OptimizedApp;

@@ -4,263 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aventurinhas - Aventuras Reais</title>
+    
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
-        
-        html {
-            font-family: 'Google Sans', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --brand-blue: #00A3FF;
-            --brand-blue-dark: #0077B6;
-            --brand-yellow: #FFD93D;
-            --brand-yellow-dark: #F9C80E;
-            --brand-purple: #9D4EDD;
-            --brand-red: #FF4D4D;
-            --brand-green: #2EC4B6;
-        }
-
-        .bg-brand-blue { background-color: var(--brand-blue); }
-        .text-brand-blue-dark { color: var(--brand-blue-dark); }
-        .bg-brand-yellow { background-color: var(--brand-yellow); }
-        .border-brand-yellowDark { border-color: var(--brand-yellow-dark); }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
+        html { font-family: 'Google Sans', sans-serif; scroll-behavior: smooth; }
+        .bg-brand-blue { background-color: #00A3FF; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
         .animate-float { animation: float 6s ease-in-out infinite; }
-        .animate-float-delayed { animation: float 6s ease-in-out 3s infinite; }
     </style>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            blue: '#00A3FF',
-                            blueDark: '#0077B6',
-                            yellow: '#FFD93D',
-                            yellowDark: '#F9C80E',
-                            purple: '#9D4EDD',
-                            purpleDark: '#5A189A',
-                            red: '#FF4D4D',
-                            redDark: '#D00000',
-                            green: '#2EC4B6',
-                            greenDark: '#0081A7',
-                        }
-                    },
-                    borderRadius: {
-                        '3xl': '1.5rem',
-                        '4xl': '2rem',
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body>
     <div id="root"></div>
 
-    <script type="importmap">
-    {
-        "imports": {
-            "react": "https://esm.sh/react@18.2.0",
-            "react-dom": "https://esm.sh/react-dom@18.2.0",
-            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-            "lucide-react": "https://esm.sh/lucide-react@0.284.0"
-        }
-    }
-    </script>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
 
-    <script type="module">
-        import React, { useState, useEffect, useRef } from 'react';
-        import ReactDOM from 'react-dom/client';
-        import { 
-            Check, Star, Map, Compass, ShieldCheck, Gamepad2, 
-            Camera, Brain, Users, Menu, X, Rocket, Sparkles, 
-            Wand2, Lightbulb, Gift, Utensils, Crown, Smartphone, 
-            Moon, ArrowDown, Home, Palette, Zap, Heart, Smile, 
-            Clock, StarHalf, ChevronDown, ChevronUp, Mail, 
-            HelpCircle, Volume2, VolumeX, Play 
-        } from 'lucide-react';
+        // Componentes Lucide simulados (já que estamos via CDN direto)
+        const Icon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return <i data-lucide={name} style={{width: size, height: size}} className={className}></i>;
+        };
 
-        // --- Subcomponentes de UI ---
-        const Button = ({ children, variant = 'primary', fullWidth = false, size = 'md', className = '', ...props }) => {
-            const baseStyles = "relative font-bold rounded-2xl transition-all active:translate-y-1 active:border-b-0 focus:outline-none select-none flex items-center justify-center gap-2";
+        const Button = ({ children, variant = 'primary', fullWidth = false, onClick }) => {
+            const base = "relative font-bold rounded-2xl transition-all active:translate-y-1 p-4 flex items-center justify-center gap-2 select-none";
             const variants = {
-                primary: "bg-brand-yellow text-amber-900 border-b-4 border-brand-yellowDark hover:brightness-105",
-                secondary: "bg-brand-blue text-white border-b-4 border-brand-blueDark hover:brightness-105",
-                accent: "bg-brand-green text-white border-b-4 border-brand-greenDark hover:brightness-105",
-            };
-            const sizes = {
-                sm: "py-2 px-4 text-sm border-b-2",
-                md: "py-3 px-6 text-lg",
-                lg: "py-4 px-8 text-xl md:text-2xl",
+                primary: "bg-[#FFD93D] text-amber-900 border-b-4 border-[#F9C80E]",
+                secondary: "bg-[#00A3FF] text-white border-b-4 border-[#0077B6]"
             };
             return (
-                <button className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${fullWidth ? 'w-full' : ''} ${className}`} {...props}>
+                <button onClick={onClick} className={`${base} ${variants[variant]} ${fullWidth ? 'w-full' : ''}`}>
                     {children}
                 </button>
             );
         };
 
         const App = () => {
-            const [isMenuOpen, setIsMenuOpen] = useState(false);
             const [vslMuted, setVslMuted] = useState(true);
-            const [testimonialMuted, setTestimonialMuted] = useState(true);
             const vslRef = useRef(null);
-            const testimonialRef = useRef(null);
 
-            const toggleVslAudio = () => {
+            const toggleVsl = () => {
                 if (vslRef.current) {
                     vslRef.current.muted = !vslRef.current.muted;
                     setVslMuted(vslRef.current.muted);
-                    if (!vslRef.current.muted) vslRef.current.play();
-                }
-            };
-
-            const toggleTestimonialAudio = () => {
-                if (testimonialRef.current) {
-                    testimonialRef.current.muted = !testimonialRef.current.muted;
-                    setTestimonialMuted(testimonialRef.current.muted);
-                    if (!testimonialRef.current.muted) testimonialRef.current.play();
+                    vslRef.current.play();
                 }
             };
 
             return (
-                <div className="min-h-screen bg-slate-50 text-slate-800">
+                <div className="min-h-screen bg-slate-50">
                     {/* Header */}
-                    <header className="absolute top-0 left-0 right-0 z-50 h-[72px]">
-                        <div className="max-w-6xl mx-auto px-4 h-full flex items-center justify-between relative">
-                            <div className="absolute left-1/2 top-0 -translate-x-1/2 z-20 pt-1">
-                                <img src="https://i.imgur.com/bl6Amwc.png" alt="Aventurinhas" className="h-28 md:h-36 hover:scale-105 transition-transform" />
-                            </div>
-                            
-                            <div className="ml-auto hidden md:flex items-center gap-6 bg-white/50 px-6 py-2 rounded-full backdrop-blur-sm border border-white/50 shadow-sm">
-                                <a href="#beneficios" className="text-brand-blueDark font-bold hover:text-brand-blue">Benefícios</a>
-                                <a href="#planos" className="text-brand-blueDark font-bold hover:text-brand-blue">Planos</a>
-                                <Button size="sm" onClick={() => window.location.href='#planos'}>Começar Agora</Button>
-                            </div>
-
-                            <button className="md:hidden ml-auto p-2 bg-white/50 rounded-xl" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                            </button>
-                        </div>
+                    <header className="h-20 flex items-center justify-center relative px-4">
+                        <img src="https://i.imgur.com/bl6Amwc.png" alt="Logo" className="h-32 absolute top-2 z-50" />
                     </header>
 
-                    {/* Mobile Menu */}
-                    {isMenuOpen && (
-                        <div className="fixed inset-0 z-40 bg-white pt-32 px-6 flex flex-col gap-6 items-center">
-                            <a href="#beneficios" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold">Benefícios</a>
-                            <a href="#planos" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold">Planos</a>
-                            <Button fullWidth onClick={() => window.location.href='#planos'}>Começar Agora</Button>
+                    {/* Hero */}
+                    <section className="pt-24 pb-12 px-4 bg-gradient-to-b from-sky-200 to-white text-center">
+                        <h1 className="text-3xl md:text-5xl font-extrabold text-[#0077B6] mb-6">
+                            Nas férias, seu filho precisa de um motivo pra brincar de verdade.
+                        </h1>
+                        
+                        <div className="max-w-[300px] mx-auto rounded-[2.5rem] overflow-hidden border-4 border-white shadow-2xl relative aspect-[9/16] bg-black">
+                            <video 
+                                ref={vslRef}
+                                src="https://video.wixstatic.com/video/512b9f_5bf6d2c9c08540a8bd3cbf2ec4d4661b/1080p/mp4/file.mp4"
+                                autoPlay muted loop playsInline
+                                className="w-full h-full object-cover"
+                            />
+                            <button 
+                                onClick={toggleVsl}
+                                className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2"
+                            >
+                                <Icon name={vslMuted ? "volume-x" : "volume-2"} className={vslMuted ? "text-red-500" : ""} />
+                                {vslMuted ? "LIGAR SOM" : "DESLIGAR SOM"}
+                            </button>
                         </div>
-                    )}
 
-                    {/* Hero Section */}
-                    <section className="bg-gradient-to-b from-sky-300 via-sky-100 to-white pt-28 md:pt-36 pb-16 flex flex-col items-center overflow-hidden">
-                        <div className="max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
-                            <div className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-1 rounded-full text-brand-blueDark font-bold text-sm mb-6 border border-white">
-                                <Rocket size={16} className="text-brand-red" />
-                                <span>Aventuras Reais para Crianças Reais</span>
-                            </div>
-
-                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-brand-blueDark leading-tight mb-6 max-w-4xl">
-                                Nas férias, seu filho(a) precisa de um motivo pra brincar de verdade.
-                            </h1>
-
-                            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mb-8 font-medium leading-relaxed">
-                                O App Aventurinhas irá gerar aventuras <span className="font-bold text-brand-purple bg-brand-purple/10 px-2 rounded-md">personalizadas</span> para que seu filho fique <span className="font-bold text-brand-red bg-brand-red/10 px-2 rounded-md whitespace-nowrap">longe das telas!</span>
-                            </p>
-
-                            {/* VSL Video Container */}
-                            <div className="w-full max-w-[320px] md:max-w-xs mb-12 transform hover:rotate-1 transition-transform duration-500 rounded-[2.5rem] overflow-hidden border-4 border-white shadow-2xl bg-slate-900 relative aspect-[9/16]">
-                                <video 
-                                    ref={vslRef}
-                                    src="https://video.wixstatic.com/video/512b9f_5bf6d2c9c08540a8bd3cbf2ec4d4661b/1080p/mp4/file.mp4"
-                                    autoPlay muted loop playsInline
-                                    className="w-full h-full object-cover"
-                                />
-                                <button 
-                                    onClick={toggleVslAudio}
-                                    className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md text-brand-blueDark px-6 py-3 rounded-full font-bold shadow-xl z-20 flex items-center gap-2 hover:scale-105 transition-all border-2 border-brand-blue/20"
-                                >
-                                    {vslMuted ? <><VolumeX size={20} className="animate-pulse text-brand-red" /> LIGAR SOM</> : <><Volume2 size={20} /> DESLIGAR SOM</>}
-                                </button>
-                            </div>
-
-                            {/* Card de Destaque */}
-                            <div className="w-full max-w-4xl mx-auto bg-white/60 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-white/60 shadow-lg mt-2 relative overflow-hidden">
-                                <div className="-mx-6 md:-mx-10 -mt-6 md:-mt-10 mb-8">
-                                    <img src="https://i.imgur.com/MZrBRnD.png" alt="Destaques" className="w-full h-auto object-cover rounded-t-3xl" />
+                        <div className="mt-10 max-w-2xl mx-auto bg-white/80 backdrop-blur p-6 rounded-3xl shadow-xl border border-white">
+                            <h3 className="text-xl font-bold text-[#0077B6] mb-6">O que o Aventurinhas oferece:</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
+                                    <Icon name="home" size={20} className="text-blue-500" />
+                                    <span>Brincadeiras pela casa toda</span>
                                 </div>
-                                <h3 className="text-2xl md:text-3xl font-bold text-brand-blueDark mb-8 max-w-3xl mx-auto leading-tight">
-                                    Com nosso app seu filho terá as férias que você sonhou pra ele!
-                                </h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-8">
-                                    {[
-                                        { text: "Brincando pela casa sem pedir celular", icon: Home, color: "text-brand-blue" },
-                                        { text: "Criando coisas com as próprias mãos", icon: Palette, color: "text-brand-purple" },
-                                        { text: "Gastando energia de forma saudável", icon: Zap, color: "text-brand-yellowDark" },
-                                        { text: "Usando a imaginação todos os dias", icon: Lightbulb, color: "text-brand-red" },
-                                        { text: "Vivendo aventuras fora da tela", icon: Compass, color: "text-brand-green" },
-                                        { text: "Criando memórias reais pra vida", icon: Heart, color: "text-brand-red" }
-                                    ].map((item, idx) => (
-                                        <div key={idx} className="flex items-center gap-3 bg-white/80 p-3 rounded-xl border border-white shadow-sm">
-                                            <item.icon size={22} className={item.color} strokeWidth={2.5} />
-                                            <span className="text-base font-medium text-slate-700 leading-tight">{item.text}</span>
-                                        </div>
-                                    ))}
-                                    <div className="md:col-span-2 flex items-center justify-center gap-3 bg-brand-green/10 p-4 rounded-xl border border-brand-green/20 shadow-sm">
-                                        <Smile size={24} className="text-brand-greenDark" strokeWidth={2.5} />
-                                        <span className="text-lg font-bold text-brand-greenDark text-center">Com você sentindo alívio em vez de culpa</span>
-                                    </div>
+                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
+                                    <Icon name="palette" size={20} className="text-purple-500" />
+                                    <span>Criatividade manual</span>
                                 </div>
-                                <div className="text-center">
-                                    <p className="text-xl font-bold text-slate-500">
-                                        Por apenas <span className="text-5xl font-extrabold text-brand-green tracking-tight mx-2">12,00</span>/Mês
-                                    </p>
-                                    <p className="mt-4 text-sm text-slate-500 font-medium">Sem brigas, sem culpa e sem improviso.</p>
+                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
+                                    <Icon name="zap" size={20} className="text-yellow-500" />
+                                    <span>Gasto de energia saudável</span>
                                 </div>
-
-                                {/* Testimonial Section */}
-                                <div className="mt-10 max-w-sm mx-auto w-full">
-                                    <h3 className="text-2xl font-black text-brand-blueDark mb-6 uppercase tracking-tight">Quem usa indica!</h3>
-                                    <div className="rounded-[2.5rem] overflow-hidden border-[6px] border-white shadow-2xl bg-slate-900 relative group aspect-[9/16]">
-                                        <video 
-                                            ref={testimonialRef}
-                                            src="https://video.wixstatic.com/video/512b9f_796c14671c0f4002b633bda942f70fb7/480p/mp4/file.mp4"
-                                            autoPlay muted loop playsInline preload="metadata"
-                                            className="w-full h-full object-cover"
-                                        />
-                                        <button 
-                                            onClick={toggleTestimonialAudio}
-                                            className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md text-brand-blueDark px-6 py-3 rounded-full font-bold shadow-xl z-20 flex items-center gap-2 hover:scale-105 transition-all border-2 border-brand-blue/20"
-                                        >
-                                            {testimonialMuted ? <><VolumeX size={20} className="animate-pulse text-brand-red" /> LIGAR SOM</> : <><Volume2 size={20} /> DESLIGAR SOM</>}
-                                        </button>
-                                    </div>
-                                    <p className="mt-4 text-brand-blueDark font-bold text-sm bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-white inline-block shadow-sm">
-                                        <Sparkles className="inline-block mr-1 text-brand-yellow" size={16} fill="currentColor" /> Veja como o Aventurinhas mudou a rotina dessa família!
-                                    </p>
+                                <div className="flex items-center gap-2 p-3 bg-white rounded-xl shadow-sm">
+                                    <Icon name="smartphone" size={20} className="text-red-500" />
+                                    <span>Longe das telas</span>
                                 </div>
                             </div>
-                        </div>
-                    </section>
 
-                    {/* Footer / Planos */}
-                    <section id="planos" className="py-20 bg-brand-blue text-white text-center">
-                        <div className="max-w-4xl mx-auto px-4">
-                            <h2 className="text-4xl font-bold mb-8">Pronto para começar a aventura?</h2>
-                            <Button variant="primary" size="lg" className="px-12" onClick={() => window.location.href='https://checkout.perfectpay.com.br/pay/PPU38CQ50C3'}>
-                                QUERO AS FÉRIAS DOS SONHOS
-                            </Button>
-                            <p className="mt-6 opacity-80">Acesso imediato após o pagamento.</p>
+                            <div className="mt-8">
+                                <p className="text-2xl font-bold">Por apenas <span className="text-4xl text-green-500">R$ 12,00</span>/mês</p>
+                                <div className="mt-4">
+                                    <Button fullWidth onClick={() => window.location.href='https://checkout.perfectpay.com.br/pay/PPU38CQ50C3'}>
+                                        <Icon name="rocket" /> QUERO AS FÉRIAS DOS SONHOS
+                                    </Button>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div>
